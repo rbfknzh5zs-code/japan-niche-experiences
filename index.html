@@ -53,6 +53,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Mouse Glow -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -80,6 +86,7 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-kanji-bg">禅</div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-tag" data-i18n="hero_tag">YOUR GATEWAY TO JAPAN'S HIDDEN CAMPSITES</p>
@@ -97,7 +104,13 @@
                 <a href="#how-it-works" class="btn btn-ghost" data-i18n="hero_cta_2">How It Works</a>
             </div>
         </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Manifesto Strip -->
     <section class="manifesto">
@@ -108,6 +121,8 @@
             </p>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Promise / Value Proposition -->
     <section class="promise">
@@ -181,9 +196,11 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- How It Works -->
     <section id="how-it-works" class="philosophy">
-        <div class="section-header">
+        <div class="section-header reveal reveal-up">
             <span class="section-tag" data-i18n="howto_tag">予約の流れ</span>
             <h2 class="section-title" data-i18n="howto_title">How It Works</h2>
         </div>
@@ -211,9 +228,11 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- Campsites -->
     <section id="campsites" class="retreats">
-        <div class="section-header">
+        <div class="section-header reveal reveal-up">
             <span class="section-tag" data-i18n="camp_tag">キャンプ場</span>
             <h2 class="section-title" data-i18n="camp_title">Featured Campsites</h2>
             <p class="section-desc" data-i18n="camp_desc">Japan's best campsites — usually impossible to book without speaking Japanese</p>
@@ -329,9 +348,11 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- Testimonials -->
     <section class="testimonials">
-        <div class="section-header">
+        <div class="section-header reveal reveal-up">
             <span class="section-tag" data-i18n="test_tag">声</span>
             <h2 class="section-title" data-i18n="test_title">Voices from the Silence</h2>
         </div>
@@ -360,9 +381,11 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- FAQ -->
     <section class="faq">
-        <div class="section-header">
+        <div class="section-header reveal reveal-up">
             <span class="section-tag">FAQ</span>
             <h2 class="section-title" data-i18n="faq_title">Common Questions</h2>
         </div>
@@ -389,6 +412,8 @@
             </details>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Booking -->
     <section id="book" class="booking">

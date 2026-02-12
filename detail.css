@@ -55,7 +55,7 @@
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent-earth-light);
+    color: var(--accent-gold-light);
     background: rgba(166,124,82,0.15);
     padding: 0.3rem 0.8rem;
     border-radius: 100px;
@@ -209,7 +209,7 @@
     font-family: var(--font-display);
     font-size: 0.9rem;
     font-weight: 400;
-    color: var(--accent-earth-light);
+    color: var(--accent-gold-light);
 }
 
 .tl-text {
@@ -259,7 +259,7 @@
 }
 
 .rating-stars {
-    color: var(--accent-earth-light);
+    color: var(--accent-gold-light);
     font-size: 1.1rem;
     letter-spacing: 0.1em;
 }
@@ -296,7 +296,7 @@
 }
 
 .review-stars {
-    color: var(--accent-earth-light);
+    color: var(--accent-gold-light);
     font-size: 0.9rem;
 }
 
