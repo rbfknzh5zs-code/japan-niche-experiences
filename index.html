@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>ZEN CAMP JAPAN | Japanese Campsite Booking Agency</title>
+    <meta name="description" content="Book Japan's hidden campsites - we handle Japanese phone reservations for you. Access 500+ campsites that only accept Japanese bookings. Your gateway to authentic Japanese camping.">
+    <meta name="keywords" content="japan camping booking, japanese campsite reservation, book camping japan, fumotoppara booking, motosuko camping, japan campground reservation, camping japan english, japan outdoor booking agency, glamping japan booking">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://zencampjapan.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zencampjapan.com/">
+    <meta property="og:title" content="ZEN CAMP JAPAN | Japanese Campsite Booking Agency">
+    <meta property="og:description" content="Book Japan's hidden campsites - we handle Japanese phone reservations for you. Your gateway to authentic Japanese camping.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZEN CAMP JAPAN | Book Japanese Campsites">
+    <meta name="twitter:description" content="Access Japan's best campsites that only accept Japanese bookings. We handle the language barrier for you.">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "ZEN CAMP JAPAN",
+        "description": "Japanese campsite booking agency - we handle reservations at Japan's best campsites for foreign travelers",
+        "url": "https://zencampjapan.com",
+        "areaServed": {"@type": "Country", "name": "Japan"},
+        "priceRange": "$$"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Do I need camping experience?", "acceptedAnswer": {"@type": "Answer", "text": "No experience needed. Our retreats range from comfortable glamping to guided wilderness camping. All equipment and instruction is provided."}},
+            {"@type": "Question", "name": "Is there really no phone signal?", "acceptedAnswer": {"@type": "Answer", "text": "Most of our retreat locations have limited or no cell service by design. We provide emergency communication devices. It's part of the digital detox experience."}},
+            {"@type": "Question", "name": "Do guides speak English?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all our guides are fluent English speakers with deep knowledge of local nature and Japanese zen philosophy."}}
+        ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-kanji">禅</span>
+                <span class="logo-text">ZEN CAMP<span class="logo-sub">JAPAN</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#campsites" data-i18n="nav_campsites">Campsites</a></li>
+                <li><a href="#how-it-works" data-i18n="nav_how_it_works">How It Works</a></li>
+                <li><a href="#book" data-i18n="nav_book">Book</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-switch" id="langSwitch" aria-label="Switch Language">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text" data-i18n="lang_switch">日本語</span>
+                </button>
+                <a href="#book" class="nav-cta" data-i18n="nav_cta">Reserve</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tag" data-i18n="hero_tag">YOUR GATEWAY TO JAPAN'S HIDDEN CAMPSITES</p>
+            <h1 class="hero-title">
+                <span class="hero-line" data-i18n="hero_title_1">Disconnect</span>
+                <span class="hero-line thin" data-i18n="hero_title_2">to</span>
+                <span class="hero-line" data-i18n="hero_title_3">Reconnect.</span>
+            </h1>
+            <p class="hero-desc" data-i18n="hero_desc">
+                Japan's most beautiful campsites don't have English websites. They only accept phone reservations — in Japanese.
+                We break down that barrier. Tell us where you want to camp, and we'll handle everything else.
+            </p>
+            <div class="hero-cta">
+                <a href="#campsites" class="btn btn-primary" data-i18n="hero_cta_1">Explore Campsites</a>
+                <a href="#how-it-works" class="btn btn-ghost" data-i18n="hero_cta_2">How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto Strip -->
+    <section class="manifesto">
+        <div class="manifesto-inner">
+            <p class="manifesto-text" data-i18n="manifesto">
+                "We don't just translate — we unlock doors. Japan's most breathtaking campsites are waiting for you.
+                They just don't speak your language. Yet."
+            </p>
+        </div>
+    </section>
+
+    <!-- Promise / Value Proposition -->
+    <section class="promise">
+        <div class="promise-container">
+            <div class="promise-visual">
+                <div class="promise-icon-grid">
+                    <div class="p-icon-item">
+                        <span class="p-icon">🗾</span>
+                        <span class="p-icon-label" data-i18n="pi_find">We find it</span>
+                    </div>
+                    <div class="p-icon-item">
+                        <span class="p-icon">📞</span>
+                        <span class="p-icon-label" data-i18n="pi_call">We call them</span>
+                    </div>
+                    <div class="p-icon-item">
+                        <span class="p-icon">📋</span>
+                        <span class="p-icon-label" data-i18n="pi_book">We book it</span>
+                    </div>
+                    <div class="p-icon-item">
+                        <span class="p-icon">✨</span>
+                        <span class="p-icon-label" data-i18n="pi_enjoy">You enjoy it</span>
+                    </div>
+                </div>
+                <div class="promise-barrier">
+                    <div class="barrier-label" data-i18n="barrier_label">The language barrier</div>
+                    <div class="barrier-line"></div>
+                    <div class="barrier-desc" data-i18n="barrier_desc">98% of Japan's best campsites and onsen only accept reservations in Japanese</div>
+                </div>
+            </div>
+            <div class="promise-content">
+                <span class="section-tag" data-i18n="promise_tag">約束</span>
+                <h2 class="promise-title" data-i18n="promise_title">
+                    The best nature in Japan is locked behind a language you don't speak.
+                </h2>
+                <p class="promise-lead" data-i18n="promise_lead">
+                    The secret campsites by volcanic lakes. The hidden onsen with no website. The forest trail 
+                    that only the village elder knows. These places don't have English booking pages. 
+                    They don't take international calls. Some don't even have a phone number — you have 
+                    to show up and ask in Japanese.
+                </p>
+                <p class="promise-main" data-i18n="promise_main">
+                    That's exactly why we exist.
+                </p>
+                <div class="promise-details">
+                    <div class="promise-item">
+                        <div class="promise-item-icon">🔍</div>
+                        <div>
+                            <strong data-i18n="pm_1_title">We discover the undiscoverable</strong>
+                            <p data-i18n="pm_1_desc">Our Japanese team lives in the countryside. We know the spots that don't exist on any English-language platform — campgrounds run by 80-year-old farmers, onsen hidden in forests, trails that don't appear on any map.</p>
+                        </div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-item-icon">🇯🇵</div>
+                        <div>
+                            <strong data-i18n="pm_2_title">We handle everything — in Japanese</strong>
+                            <p data-i18n="pm_2_desc">Every phone call, every reservation, every permit, every local negotiation. We speak the language so you never have to. All you receive is a simple itinerary in English — and a life-changing experience.</p>
+                        </div>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-item-icon">🗺️</div>
+                        <div>
+                            <strong data-i18n="pm_3_title">We design your perfect plan</strong>
+                            <p data-i18n="pm_3_desc">Custom itineraries built around your dates, fitness level, and dreams. From airport to campfire to onsen to starlit sky — we plan every detail so your only job is to be present.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="promise-closing" data-i18n="promise_closing">
+                    You bring the curiosity. We handle everything else.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="philosophy">
+        <div class="section-header">
+            <span class="section-tag" data-i18n="howto_tag">予約の流れ</span>
+            <h2 class="section-title" data-i18n="howto_title">How It Works</h2>
+        </div>
+        <div class="phil-grid">
+            <div class="phil-card">
+                <div class="phil-icon">🔍</div>
+                <h3 data-i18n="howto_1_title">1. Choose Your Campsite</h3>
+                <p data-i18n="howto_1_desc">Browse our curated selection of Japan's best campsites — from Mt. Fuji views to hidden forest retreats. Or tell us your dream, and we'll find it for you.</p>
+            </div>
+            <div class="phil-card">
+                <div class="phil-icon">📝</div>
+                <h3 data-i18n="howto_2_title">2. Send Your Request</h3>
+                <p data-i18n="howto_2_desc">Tell us your dates, group size, and any special requests. We'll confirm availability within 24-48 hours — no Japanese language skills required.</p>
+            </div>
+            <div class="phil-card">
+                <div class="phil-icon">📞</div>
+                <h3 data-i18n="howto_3_title">3. We Book in Japanese</h3>
+                <p data-i18n="howto_3_desc">Our Japanese-speaking team calls the campsite, handles all communication, and secures your reservation. You receive confirmation in English.</p>
+            </div>
+            <div class="phil-card">
+                <div class="phil-icon">⛺</div>
+                <h3 data-i18n="howto_4_title">4. Just Show Up & Camp</h3>
+                <p data-i18n="howto_4_desc">Arrive with your English confirmation, directions, and local tips. The language barrier is gone — your adventure begins.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campsites -->
+    <section id="campsites" class="retreats">
+        <div class="section-header">
+            <span class="section-tag" data-i18n="camp_tag">キャンプ場</span>
+            <h2 class="section-title" data-i18n="camp_title">Featured Campsites</h2>
+            <p class="section-desc" data-i18n="camp_desc">Japan's best campsites — usually impossible to book without speaking Japanese</p>
+        </div>
+
+        <div class="retreat-grid">
+            <!-- Retreat 7 -->
+            <article class="retreat-card">
+                <div class="retreat-img r-img-7">
+                    <div class="retreat-duration">1–2 <span data-i18n="nights">Nights</span></div>
+                </div>
+                <div class="retreat-body">
+                    <span class="retreat-region">Nasu Kogen, Tochigi</span>
+                    <h3 class="retreat-title" data-i18n="r7_title">Nasu Highland Glamping Retreat</h3>
+                    <p class="retreat-subtitle">那須高原プライベート温泉グランピング</p>
+                    <p class="retreat-desc" data-i18n="r7_desc">Luxury glamping in Tochigi's beautiful Nasu Highland — each dome tent comes with its own private natural hot spring, Finnish barrel sauna, and campfire pit. The ultimate comfort meets nature.</p>
+                    <ul class="retreat-highlights">
+                        <li data-i18n="r7_h1">♨️ Private natural onsen in every tent</li>
+                        <li data-i18n="r7_h2">🧖 Finnish barrel sauna & ice bath</li>
+                        <li data-i18n="r7_h3">🔥 Personal campfire pit</li>
+                        <li data-i18n="r7_h4">🥩 Tochigi wagyu BBQ dinner</li>
+                    </ul>
+                    <div class="retreat-features">
+                        <span class="feature-tag" data-i18n="r7_f1">5 tent types</span>
+                        <span class="feature-tag" data-i18n="r7_f2">All-inclusive bar</span>
+                        <span class="feature-tag" data-i18n="r7_f3">Craft workshops</span>
+                        <span class="feature-tag" data-i18n="r7_f4">Stargazing</span>
+                    </div>
+                    <div class="retreat-footer">
+                        <div class="retreat-price">
+                            <div class="price-breakdown">
+                                <span class="price-line" data-i18n="price_campsite">Campsite: ¥55,000</span>
+                                <span class="price-line" data-i18n="price_agency">+ Agency fee: ¥5,000</span>
+                            </div>
+                            <span class="price-amount">¥60,000</span>
+                            <span class="price-per" data-i18n="per_person_night">/ person / night</span>
+                        </div>
+                        <a href="#book" class="btn btn-small" data-i18n="request_booking">Request Booking</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Campsite 8 -->
+            <article class="retreat-card">
+                <div class="retreat-img r-img-8">
+                    <div class="retreat-duration">1–3 <span data-i18n="nights">Nights</span></div>
+                </div>
+                <div class="retreat-body">
+                    <span class="retreat-region">Lake Motosuko, Yamanashi</span>
+                    <h3 class="retreat-title" data-i18n="r8_title">Camp Where Japan Printed Its Money</h3>
+                    <p class="retreat-subtitle">本栖湖 — 千円札「逆さ富士」の地でキャンプ</p>
+                    <p class="retreat-desc" data-i18n="r8_desc">You've held this view in your hand. The "Inverted Fuji" reflected in Lake Motosuko — photographed by Okada Kōyō as "Lakeside Spring" — is the image on Japan's ¥1,000 bill (Kitasato Shibasaburo) and the former ¥5,000 bill (Noguchi Hideyo). Now imagine waking up inside that picture. Camp on the very shores where Okada set up his camera, watch Mt. Fuji turn crimson at sunset, and see the sacred mountain mirrored perfectly in the still morning water.</p>
+                    <ul class="retreat-highlights">
+                        <li data-i18n="r8_h1">🗻 The real "Inverted Fuji" — the ¥1,000 bill view from your tent</li>
+                        <li data-i18n="r8_h2">📸 Okada Kōyō's "Lakeside Spring" — camp at the exact spot</li>
+                        <li data-i18n="r8_h3">🏕️ Lakeside tent & bungalow camping</li>
+                        <li data-i18n="r8_h4">🎣 Crystal-clear lake fishing, swimming & trekking</li>
+                    </ul>
+                    <div class="retreat-features">
+                        <span class="feature-tag" data-i18n="r8_f1">On Japan's ¥1,000 & former ¥5,000 bill</span>
+                        <span class="feature-tag" data-i18n="r8_f2">Phone-only booking (Japanese)</span>
+                        <span class="feature-tag" data-i18n="r8_f3">We book for you</span>
+                        <span class="feature-tag" data-i18n="r8_f4">Fuji Five Lakes</span>
+                    </div>
+                    <div class="retreat-footer">
+                        <div class="retreat-price">
+                            <div class="price-breakdown">
+                                <span class="price-line" data-i18n="price_campsite_2">Campsite: ¥5,000</span>
+                                <span class="price-line" data-i18n="price_agency_2">+ Agency fee: ¥5,000</span>
+                            </div>
+                            <span class="price-amount">¥10,000</span>
+                            <span class="price-per" data-i18n="per_person_night">/ person / night</span>
+                        </div>
+                        <a href="#book" class="btn btn-small" data-i18n="request_booking">Request Booking</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Campsite 9 -->
+            <article class="retreat-card">
+                <div class="retreat-img r-img-9">
+                    <div class="retreat-duration">1–3 <span data-i18n="nights">Nights</span></div>
+                </div>
+                <div class="retreat-body">
+                    <span class="retreat-region">Fumotoppara, Shizuoka</span>
+                    <h3 class="retreat-title" data-i18n="r9_title">Fumotoppara — The Holy Ground of Camping</h3>
+                    <p class="retreat-subtitle">ふもとっぱら — 富士山を独り占めする聖地</p>
+                    <p class="retreat-desc" data-i18n="r9_desc">Japan's most legendary campground. A vast open meadow at the foot of Mt. Fuji with nothing between you and the mountain — just grass, sky, and the most unobstructed view of Fuji you'll ever see. This is where Japanese campers dream of going. Now you can too.</p>
+                    <ul class="retreat-highlights">
+                        <li data-i18n="r9_h1">🗻 Unobstructed full-scale Mt. Fuji panorama</li>
+                        <li data-i18n="r9_h2">🌄 Sunrise paints Fuji right in front of your tent</li>
+                        <li data-i18n="r9_h3">⛺ Vast open meadow — no walls, no fences, just nature</li>
+                        <li data-i18n="r9_h4">🏔️ Mt. Kenashi hiking & MTB trails</li>
+                    </ul>
+                    <div class="retreat-features">
+                        <span class="feature-tag" data-i18n="r9_f1">#1 campground in Japan</span>
+                        <span class="feature-tag" data-i18n="r9_f2">Cottages available</span>
+                        <span class="feature-tag" data-i18n="r9_f3">We book for you</span>
+                    </div>
+                    <div class="retreat-footer">
+                        <div class="retreat-price">
+                            <div class="price-breakdown">
+                                <span class="price-line" data-i18n="price_campsite_3">Campsite: ¥5,000</span>
+                                <span class="price-line" data-i18n="price_agency_3">+ Agency fee: ¥5,000</span>
+                            </div>
+                            <span class="price-amount">¥10,000</span>
+                            <span class="price-per" data-i18n="per_person_night">/ person / night</span>
+                        </div>
+                        <a href="#book" class="btn btn-small" data-i18n="request_booking">Request Booking</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="section-tag" data-i18n="test_tag">声</span>
+            <h2 class="section-title" data-i18n="test_title">Voices from the Silence</h2>
+        </div>
+        <div class="test-grid">
+            <div class="test-card">
+                <p class="test-text" data-i18n="test_1">"I haven't gone 3 days without my phone since I was 12. By the second morning in that forest, I didn't want it back. Best decision I've ever made."</p>
+                <div class="test-author">
+                    <span class="test-name">Jake R.</span>
+                    <span class="test-from">San Francisco, CA</span>
+                </div>
+            </div>
+            <div class="test-card">
+                <p class="test-text" data-i18n="test_2">"The onsen under the stars, the silence of the cedar forest, the campfire tea ceremony... this isn't a tour. This is a transformation."</p>
+                <div class="test-author">
+                    <span class="test-name">Emma L.</span>
+                    <span class="test-from">London, UK</span>
+                </div>
+            </div>
+            <div class="test-card">
+                <p class="test-text" data-i18n="test_3">"I've done retreats in Bali, Costa Rica, India. Nothing comes close to this. Japan's nature is on another level, and the zen approach to everything was life-changing."</p>
+                <div class="test-author">
+                    <span class="test-name">David M.</span>
+                    <span class="test-from">Brooklyn, NY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-header">
+            <span class="section-tag">FAQ</span>
+            <h2 class="section-title" data-i18n="faq_title">Common Questions</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary data-i18n="faq_q1">Why can't I book these campsites myself?</summary>
+                <p data-i18n="faq_a1">Most Japanese campsites only accept phone reservations in Japanese. They don't have English websites or international booking systems. Even popular sites like Fumotoppara require Japanese-language phone calls to secure a spot.</p>
+            </details>
+            <details class="faq-item">
+                <summary data-i18n="faq_q2">How much is your agency fee?</summary>
+                <p data-i18n="faq_a2">Our agency fee is ¥5,000 per booking, regardless of group size or number of nights. This covers the phone reservation, communication with the campsite, English confirmation, and ongoing support until your trip.</p>
+            </details>
+            <details class="faq-item">
+                <summary data-i18n="faq_q3">What if my preferred dates aren't available?</summary>
+                <p data-i18n="faq_a3">We'll immediately let you know and suggest alternative dates or similar campsites. You're never charged until we secure a confirmed booking. If we can't book your request, there's no fee.</p>
+            </details>
+            <details class="faq-item">
+                <summary data-i18n="faq_q4">Do you provide camping equipment?</summary>
+                <p data-i18n="faq_a4">We're a booking agency, not a rental company. However, many campsites offer equipment rental, and we can arrange this when we make your reservation. Just let us know what you need in your request.</p>
+            </details>
+            <details class="faq-item">
+                <summary data-i18n="faq_q5">How do I pay?</summary>
+                <p data-i18n="faq_a5">After we confirm your booking, we'll send payment instructions. You can pay via credit card or bank transfer. The campsite fee goes to the campsite; our agency fee goes to us. Simple and transparent.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="book" class="booking">
+        <div class="booking-container">
+            <div class="booking-info">
+                <span class="section-tag" data-i18n="book_tag">予約依頼</span>
+                <h2 class="booking-title" data-i18n="book_title">Request a Booking</h2>
+                <p class="booking-desc" data-i18n="book_desc">Tell us where you want to camp and when. We'll check availability, call the campsite in Japanese, and send you confirmation in English within 24-48 hours.</p>
+                <div class="booking-trust">
+                    <div class="trust-item"><span>✓</span><span data-i18n="trust_1">No charge until booking confirmed</span></div>
+                    <div class="trust-item"><span>✓</span><span data-i18n="trust_2">Full refund if unavailable</span></div>
+                    <div class="trust-item"><span>✓</span><span data-i18n="trust_3">English confirmation within 48h</span></div>
+                    <div class="trust-item"><span>✓</span><span data-i18n="trust_4">Transparent pricing (campsite + agency fee)</span></div>
+                    <div class="trust-item"><span>✓</span><span data-i18n="trust_5">Local tips & directions included</span></div>
+                    <div class="trust-item"><span>✓</span><span data-i18n="trust_6">Support via email or LINE</span></div>
+                </div>
+            </div>
+            <div class="booking-form-wrap">
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-group">
+                        <label for="name" data-i18n="form_name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Your name" data-i18n-placeholder="form_name_ph">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="form_email">Email</label>
+                        <input type="email" id="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date" data-i18n="form_date">Preferred Dates</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests" data-i18n="form_guests">Group Size</label>
+                            <select id="guests" required>
+                                <option value="" data-i18n="form_select">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3-4">3-4</option>
+                                <option value="5-8">5-8</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="campsite" data-i18n="form_campsite">Preferred Campsite</label>
+                        <select id="campsite" required>
+                            <option value="" data-i18n="form_select">Select</option>
+                            <option value="nasu" data-i18n="r7_title">Nasu Highland Glamping</option>
+                            <option value="motosuko" data-i18n="r8_title">Lake Motosuko (¥1,000 bill view)</option>
+                            <option value="fumotoppara" data-i18n="r9_title">Fumotoppara (Mt. Fuji)</option>
+                            <option value="other" data-i18n="form_other">Other / Not sure yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="flexibility" data-i18n="form_flexibility">Date Flexibility</label>
+                        <select id="flexibility">
+                            <option value="exact" data-i18n="form_exact">Exact dates only</option>
+                            <option value="flexible" data-i18n="form_flexible">±1-2 days is OK</option>
+                            <option value="very_flexible" data-i18n="form_very_flexible">Very flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="form_message">Special Requests</label>
+                        <textarea id="message" rows="4" placeholder="Equipment rental? Nearby onsen? Any special needs?" data-i18n-placeholder="form_msg_ph"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-i18n="form_submit">Request Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-kanji">禅</span>
+                        <span class="logo-text">ZEN CAMP<span class="logo-sub">JAPAN</span></span>
+                    </a>
+                    <p class="footer-desc" data-i18n="footer_desc">Japanese campsite booking agency. We handle reservations at Japan's best campsites for foreign travelers. Based in Japan, serving the world.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_campsites">Campsites</h4>
+                        <ul>
+                            <li><a href="#campsites" data-i18n="r7_title">Nasu Highland Glamping</a></li>
+                            <li><a href="#campsites" data-i18n="r8_title">Lake Motosuko</a></li>
+                            <li><a href="#campsites" data-i18n="r9_title">Fumotoppara</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_company">Company</h4>
+                        <ul>
+                            <li><a href="#how-it-works" data-i18n="nav_how_it_works">How It Works</a></li>
+                            <li><a href="#book" data-i18n="footer_contact">Contact</a></li>
+                            <li><a href="#" data-i18n="footer_privacy">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_copy">© 2026 ZEN CAMP JAPAN. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    <script src="i18n.js"></script>
+</body>
+</html>
