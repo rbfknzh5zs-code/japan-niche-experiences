@@ -142,56 +142,69 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Featured Package Card ── */}
+      {/* ── Packages ── */}
       <section className="bg-white py-24 px-6">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5">Featured Package</p>
-          <h2 className="font-display text-4xl font-light text-stone-900 mb-12">Digital Detox Starter</h2>
+          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5">Packages</p>
+          <h2 className="font-display text-4xl font-light text-stone-900 mb-12">Choose Your Experience</h2>
 
-          <div className="rounded-2xl border border-stone-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-            {/* Visual placeholder */}
-            <div className="bg-gradient-to-br from-forest-800 via-forest-900 to-earth-900 p-12 flex flex-col justify-end min-h-64 relative">
-              <div aria-hidden className="absolute inset-0 flex items-center justify-center text-white/5 font-display text-[12rem] select-none">
-                静
-              </div>
-              <span className="relative z-10 text-xs font-semibold tracking-widest text-forest-300 uppercase mb-2">1 Night</span>
-              <p className="relative z-10 font-display text-3xl font-light text-white">
-                Your first step into<br /><em className="text-forest-300">Japanese quiet</em>
-              </p>
-            </div>
-
-            {/* Details */}
-            <div className="p-10 flex flex-col justify-between">
-              <div>
-                <ul className="space-y-3 mb-8">
-                  {INCLUDES.map((item) => (
-                    <li key={item.label} className="flex items-center gap-3 text-stone-700">
-                      <span className="text-xl w-8 flex-shrink-0">{item.icon}</span>
-                      <span>{item.label}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm text-stone-500 mb-6">
-                  For 1–4 guests. No camping experience needed. No Japanese required.
+          <div className="space-y-8">
+            {/* Card 1: Nasu Highland Glamping — Featured */}
+            <div className="rounded-2xl border border-earth-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+              <div className="bg-gradient-to-br from-earth-800 via-earth-900 to-stone-900 p-12 flex flex-col justify-end min-h-64 relative">
+                <div aria-hidden className="absolute inset-0 flex items-center justify-center text-white/5 font-display text-[12rem] select-none">
+                  湯
+                </div>
+                <span className="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest text-earth-300 uppercase mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-earth-400 inline-block" />
+                  Featured Destination
+                </span>
+                <p className="relative z-10 font-display text-3xl font-light text-white">
+                  Nasu Highland —<br /><em className="text-earth-300">Private onsen & sauna</em>
                 </p>
               </div>
 
-              <div className="border-t border-stone-100 pt-6 flex items-end justify-between">
+              <div className="p-10 flex flex-col justify-between">
                 <div>
-                  <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">From</p>
-                  <p className="font-display text-3xl text-stone-900">¥15,000</p>
-                  <p className="text-xs text-stone-400">/ group (1–4 guests)</p>
+                  <p className="text-xs text-stone-500 mb-4">Nasu Kogen · Tochigi Prefecture</p>
+                  <ul className="space-y-3 mb-6">
+                    {[
+                      { icon: '♨️', label: 'Private natural hot spring — every cabin' },
+                      { icon: '🪣', label: 'Private barrel sauna + cold plunge — every cabin' },
+                      { icon: '🔥', label: 'Private campfire — every cabin' },
+                      { icon: '🍖', label: 'Glamping BBQ with local Tochigi ingredients' },
+                      { icon: '🍹', label: 'Free bar at B&V Terrace' },
+                      { icon: '📄', label: 'Full English guide by Digital Detox Japan' },
+                    ].map((item) => (
+                      <li key={item.label} className="flex items-center gap-3 text-stone-700">
+                        <span className="text-xl w-8 flex-shrink-0">{item.icon}</span>
+                        <span className="text-sm">{item.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-stone-500">
+                    5 dome types. Up to 8 guests. Dog-friendly option available.
+                  </p>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <Link href="/packages/digital-detox-starter" className="btn-ghost text-sm">
-                    Package details
-                  </Link>
-                  <Link href="/contact" className="btn-primary text-sm">
-                    Request your dates
-                  </Link>
+
+                <div className="border-t border-stone-100 pt-6 flex items-end justify-between">
+                  <div>
+                    <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">From</p>
+                    <p className="font-display text-3xl text-stone-900">¥45,000</p>
+                    <p className="text-xs text-stone-400">/ cabin per night</p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Link href="/packages/nasu-highland-glamping" className="btn-ghost text-sm">
+                      Package details
+                    </Link>
+                    <Link href="/contact" className="btn-primary text-sm">
+                      Request your dates
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
