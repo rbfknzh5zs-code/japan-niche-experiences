@@ -8,8 +8,8 @@
     align-items: flex-end;
     padding: 8rem 2rem 4rem;
     background:
-        linear-gradient(175deg, rgba(26,26,24,0.3) 0%, rgba(26,26,24,0.7) 100%),
-        linear-gradient(135deg, #2d4a22 0%, #1a3a2a 40%, #0d1f15 70%, #0a120d 100%);
+        linear-gradient(175deg, rgba(10,17,12,0.3) 0%, rgba(10,17,12,0.7) 100%),
+        linear-gradient(135deg, #1a3a22 0%, #122a1a 40%, #0a1f12 70%, #06120a 100%);
 }
 
 .detail-hero-overlay {
@@ -19,7 +19,7 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 30% 70%, rgba(107,143,94,0.1) 0%, transparent 50%);
+        radial-gradient(circle at 30% 70%, rgba(61,122,74,0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Hero from '@/components/Hero'
 import JsonLd from '@/components/JsonLd'
+import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
   title: 'Nasu Highland Glamping — Private Onsen & Barrel Sauna in Every Cabin',
@@ -95,6 +97,7 @@ export default function NasuHighlandGlampingPage() {
         description="Every dome cabin at Glamping B&V Nasu Kogen comes with its own private natural hot spring and Finnish barrel sauna. Soak, sweat, campfire, stars. The first resort of its kind in the Nasu Kogen area."
         cta={{ label: 'Request your dates', href: '/contact' }}
         kanji="湯"
+        bgImage="/images/nasut_1.jpg"
       />
 
       {/* Onsen + Sauna highlight banner */}
@@ -123,6 +126,62 @@ export default function NasuHighlandGlampingPage() {
               <p className="font-display text-xl font-light text-white">Private Campfire</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Photo gallery */}
+      <section className="bg-white py-12 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden col-span-2 row-span-1 lg:col-span-2 lg:row-span-2">
+              <Image
+                src="/images/bv.jpg"
+                alt="Glamping B&V Nasu Kogen — dome cabins"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <Image
+                src="/images/nasut_4.jpg"
+                alt="Nasu Highland glamping exterior"
+                fill
+                className="object-cover"
+                sizes="25vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <Image
+                src="/images/nasut_11.jpg"
+                alt="Nasu Highland glamping dome"
+                fill
+                className="object-cover"
+                sizes="25vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <Image
+                src="/images/nasu-sauna.jpg"
+                alt="Private barrel sauna at Nasu Highland"
+                fill
+                className="object-cover"
+                sizes="25vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <Image
+                src="/images/nasut_6.jpg"
+                alt="Nasu Highland glamping camp area"
+                fill
+                className="object-cover"
+                sizes="25vw"
+              />
+            </div>
+          </div>
+          <p className="mt-3 text-xs text-stone-400 text-right">
+            Photos: Glamping B&amp;V Nasu Kogen
+          </p>
         </div>
       </section>
 
@@ -273,6 +332,16 @@ export default function NasuHighlandGlampingPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Share */}
+      <section className="bg-white py-10 px-6 border-t border-stone-100">
+        <div className="mx-auto max-w-5xl">
+          <ShareButtons
+            url="https://digitaldetoxjapan.com/packages/nasu-highland-glamping"
+            title="Nasu Highland Glamping — Private Onsen & Barrel Sauna in Every Cabin"
+          />
         </div>
       </section>
 

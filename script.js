@@ -1,4 +1,4 @@
-// ===== ZEN CAMP JAPAN - Enhanced Script =====
+// ===== ZEN RETREAT JAPAN - Enhanced Script =====
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
@@ -151,7 +151,7 @@ function initMouseGlow() {
     const glow = document.getElementById('mouseGlow');
     if (!glow) return;
 
-    const glowSections = document.querySelectorAll('.retreats, .philosophy, .testimonials');
+    const glowSections = document.querySelectorAll('.retreats, .philosophy, .packages');
     let isInSection = false;
     let animFrame;
 
@@ -237,7 +237,7 @@ function initBookingForm() {
             email: form.querySelector('#email')?.value,
             date: form.querySelector('#date')?.value,
             guests: form.querySelector('#guests')?.value,
-            campsite: form.querySelector('#campsite')?.value,
+            package: form.querySelector('#package')?.value,
             message: form.querySelector('#message')?.value,
         };
 

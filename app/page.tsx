@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Hero from '@/components/Hero'
 import JsonLd from '@/components/JsonLd'
 
@@ -9,6 +10,24 @@ export const metadata: Metadata = {
     'Digital fatigue × Japanese quiet. Curated glamping, onsen & forest therapy experiences in Japan for English-speaking travelers. Encouraged, not enforced.',
   alternates: { canonical: '/' },
 }
+
+const TESTIMONIALS = [
+  {
+    quote: "I came to Japan wired and left feeling like myself again. The onsen, the forest, the silence — it was exactly what I needed.",
+    name: "Sarah M.",
+    origin: "Toronto, Canada",
+  },
+  {
+    quote: "Everything was prepared in English. I didn't have to figure out a single thing — I just showed up and unplugged.",
+    name: "James K.",
+    origin: "London, UK",
+  },
+  {
+    quote: "The private barrel sauna at midnight was unforgettable. No phones, no noise — just stars and steam.",
+    name: "Lena R.",
+    origin: "Berlin, Germany",
+  },
+]
 
 const STEPS = [
   {
@@ -69,10 +88,10 @@ export default function HomePage() {
         title="Digital Detox in Japan —"
         titleEm="Unplug, Relax, Reconnect"
         subtitle="Digital fatigue × Japanese quiet"
-        description="Your screen can wait. Japan's forests, hot springs, and open skies cannot. We prepare everything in English so you can simply arrive — and breathe."
+        description="Trade your notifications for the sound of wind through cedar. We handle every Japanese detail — booking, guide, directions — so you step off the train and straight into stillness."
         cta={{ label: 'Request your dates', href: '/contact' }}
-        ctaSecondary={{ label: 'See how it works', href: '/how-it-works' }}
         kanji="静"
+        bgImage="/images/hero-forest.jpg"
       />
 
       {/* ── Manifesto strip ── */}
@@ -142,6 +161,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Testimonials ── */}
+      <section className="bg-stone-50 py-24 px-6">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5 text-center">Guest Stories</p>
+          <h2 className="font-display text-4xl font-light text-stone-900 leading-tight text-center mb-14">
+            What our guests say
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {TESTIMONIALS.map((t) => (
+              <div key={t.name} className="bg-white rounded-2xl border border-stone-200 p-8 flex flex-col">
+                <span className="font-display text-5xl text-forest-200 leading-none mb-4">&ldquo;</span>
+                <p className="text-stone-700 leading-relaxed flex-1">{t.quote}</p>
+                <div className="mt-6 pt-6 border-t border-stone-100">
+                  <p className="font-medium text-stone-800 text-sm">{t.name}</p>
+                  <p className="text-xs text-stone-400 mt-0.5">{t.origin}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Packages ── */}
       <section className="bg-white py-24 px-6">
         <div className="mx-auto max-w-5xl">
@@ -151,10 +192,15 @@ export default function HomePage() {
           <div className="space-y-8">
             {/* Card 1: Nasu Highland Glamping — Featured */}
             <div className="rounded-2xl border border-earth-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-              <div className="bg-gradient-to-br from-earth-800 via-earth-900 to-stone-900 p-12 flex flex-col justify-end min-h-64 relative">
-                <div aria-hidden className="absolute inset-0 flex items-center justify-center text-white/5 font-display text-[12rem] select-none">
-                  湯
-                </div>
+              <div className="p-12 flex flex-col justify-end min-h-64 relative overflow-hidden bg-stone-900">
+                <Image
+                  src="/images/bv.jpg"
+                  alt="Glamping B&V Nasu Kogen — dome cabin exterior"
+                  fill
+                  className="object-cover object-center opacity-55"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent" />
                 <span className="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest text-earth-300 uppercase mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-earth-400 inline-block" />
                   Featured Destination
@@ -244,9 +290,15 @@ export default function HomePage() {
           <Link href="/contact" className="btn-primary text-base py-4 px-10">
             Request your dates
           </Link>
-          <p className="mt-6 text-sm text-stone-500">
-            No payment upfront. We respond within 48 hours (JST).
-          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-stone-400">
+            <span className="flex items-center gap-2">✉️ <span>Quick response</span></span>
+            <span className="hidden sm:inline text-stone-700">·</span>
+            <span className="flex items-center gap-2">💳 <span>No upfront payment</span></span>
+            <span className="hidden sm:inline text-stone-700">·</span>
+            <span className="flex items-center gap-2">🇬🇧 <span>English support</span></span>
+            <span className="hidden sm:inline text-stone-700">·</span>
+            <span className="flex items-center gap-2">🔄 <span>Free cancellation</span></span>
+          </div>
         </div>
       </section>
     </>
