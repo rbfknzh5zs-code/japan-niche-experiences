@@ -22,7 +22,7 @@ export default function Hero({
   description,
   cta,
   ctaSecondary,
-  kanji = '静',
+  kanji = '禅',
   center = true,
   bgImage,
 }: HeroProps) {

@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 group">
               <span className="font-display text-2xl text-forest-400 group-hover:text-forest-300 transition-colors">
-                静
+                禅
               </span>
               <div>
                 <p className="text-sm font-semibold tracking-widest text-white uppercase leading-none">

@@ -34,7 +34,7 @@ export default function Header() {
             className="font-display text-2xl text-forest-600 group-hover:text-forest-700 transition-colors"
             style={{ fontFamily: 'serif' }}
           >
-            静
+            禅
           </span>
           <div>
             <p className="text-sm font-semibold tracking-widest text-stone-800 uppercase leading-none">

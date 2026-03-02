@@ -48,7 +48,11 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <div className="rounded-2xl border border-forest-200 bg-forest-50 px-8 py-12 text-center">
-        <div className="mb-4 text-4xl">🌿</div>
+        <div className="mb-4 flex justify-center">
+          <svg className="w-12 h-12 text-forest-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
         <h3 className="font-display text-2xl font-light text-forest-800 mb-3">
           Request Received
         </h3>

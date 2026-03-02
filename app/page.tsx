@@ -11,23 +11,50 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 }
 
-const TESTIMONIALS = [
-  {
-    quote: "I came to Japan wired and left feeling like myself again. The onsen, the forest, the silence — it was exactly what I needed.",
-    name: "Sarah M.",
-    origin: "Toronto, Canada",
-  },
-  {
-    quote: "Everything was prepared in English. I didn't have to figure out a single thing — I just showed up and unplugged.",
-    name: "James K.",
-    origin: "London, UK",
-  },
-  {
-    quote: "The private barrel sauna at midnight was unforgettable. No phones, no noise — just stars and steam.",
-    name: "Lena R.",
-    origin: "Berlin, Germany",
-  },
-]
+// SVG icon helper
+function Ico({ path, className = 'w-5 h-5' }: { path: string | string[]; className?: string }) {
+  const paths = Array.isArray(path) ? path : [path]
+  return (
+    <svg
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      {paths.map((d, i) => (
+        <path key={i} strokeLinecap="round" strokeLinejoin="round" d={d} />
+      ))}
+    </svg>
+  )
+}
+
+// Heroicons paths
+const PATHS = {
+  home:       'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+  fire:       'M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z',
+  document:   'M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z',
+  sparkles:   [
+    'M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z',
+  ],
+  video:      'm15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z',
+  book:       'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25',
+  check:      'M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+  envelope:   [
+    'M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75',
+  ],
+  creditCard: 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z',
+  globe:      [
+    'M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418',
+  ],
+  arrowPath:  'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99',
+  utensils:   [
+    'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513m-3 0V18m-9-4.875V18M6 18h12',
+  ],
+  beaker:     'M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 1-6.23-.693L4.2 15.3m15.6 0-1.57 3.534a2.25 2.25 0 0 1-2.14 1.417H8.11a2.25 2.25 0 0 1-2.14-1.417L4.2 15.3',
+}
+
 
 const STEPS = [
   {
@@ -53,12 +80,12 @@ const STEPS = [
 ]
 
 const INCLUDES = [
-  { icon: '⛺', label: '1-night glamping stay' },
-  { icon: '🥩', label: 'BBQ plan included' },
-  { icon: '📄', label: 'English guide PDF' },
-  { icon: '♨️', label: 'Onsen area map' },
-  { icon: '🎥', label: 'Getting-there directions video' },
-  { icon: '📖', label: 'Digital detox mini guide' },
+  { iconKey: 'home'     as const, label: '1-night glamping stay' },
+  { iconKey: 'fire'     as const, label: 'BBQ plan included' },
+  { iconKey: 'document' as const, label: 'English guide PDF' },
+  { iconKey: 'sparkles' as const, label: 'Onsen area map' },
+  { iconKey: 'video'    as const, label: 'Getting-there directions video' },
+  { iconKey: 'book'     as const, label: 'Digital detox mini guide' },
 ]
 
 export default function HomePage() {
@@ -90,7 +117,7 @@ export default function HomePage() {
         subtitle="Digital fatigue × Japanese quiet"
         description="Trade your notifications for the sound of wind through cedar. We handle every Japanese detail — booking, guide, directions — so you step off the train and straight into stillness."
         cta={{ label: 'Request your dates', href: '/contact' }}
-        kanji="静"
+        kanji="禅"
         bgImage="/images/hero-forest.jpg"
       />
 
@@ -150,7 +177,10 @@ export default function HomePage() {
               'Email support before and during your stay',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-stone-700">
-                <span className="mt-1 flex-shrink-0 h-5 w-5 rounded-full bg-forest-100 text-forest-600 text-xs flex items-center justify-center font-bold">✓</span>
+                <Ico
+                  path={PATHS.check}
+                  className="mt-0.5 flex-shrink-0 w-5 h-5 text-forest-600"
+                />
                 <span className="leading-snug">{item}</span>
               </li>
             ))}
@@ -158,28 +188,6 @@ export default function HomePage() {
           <p className="mt-8 font-display text-xl italic text-forest-700">
             Encouraged, not enforced.
           </p>
-        </div>
-      </section>
-
-      {/* ── Testimonials ── */}
-      <section className="bg-stone-50 py-24 px-6">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5 text-center">Guest Stories</p>
-          <h2 className="font-display text-4xl font-light text-stone-900 leading-tight text-center mb-14">
-            What our guests say
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="bg-white rounded-2xl border border-stone-200 p-8 flex flex-col">
-                <span className="font-display text-5xl text-forest-200 leading-none mb-4">&ldquo;</span>
-                <p className="text-stone-700 leading-relaxed flex-1">{t.quote}</p>
-                <div className="mt-6 pt-6 border-t border-stone-100">
-                  <p className="font-medium text-stone-800 text-sm">{t.name}</p>
-                  <p className="text-xs text-stone-400 mt-0.5">{t.origin}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -215,15 +223,18 @@ export default function HomePage() {
                   <p className="text-xs text-stone-500 mb-4">Nasu Kogen · Tochigi Prefecture</p>
                   <ul className="space-y-3 mb-6">
                     {[
-                      { icon: '♨️', label: 'Private natural hot spring — every cabin' },
-                      { icon: '🪣', label: 'Private barrel sauna + cold plunge — every cabin' },
-                      { icon: '🔥', label: 'Private campfire — every cabin' },
-                      { icon: '🍖', label: 'Glamping BBQ with local Tochigi ingredients' },
-                      { icon: '🍹', label: 'Free bar at B&V Terrace' },
-                      { icon: '📄', label: 'Full English guide by Digital Detox Japan' },
+                      { iconKey: 'sparkles' as const, label: 'Private natural hot spring — every cabin' },
+                      { iconKey: 'fire'     as const, label: 'Private barrel sauna + cold plunge — every cabin' },
+                      { iconKey: 'fire'     as const, label: 'Private campfire — every cabin' },
+                      { iconKey: 'utensils' as const, label: 'Glamping BBQ with local Tochigi ingredients' },
+                      { iconKey: 'beaker'   as const, label: 'Free bar at B&V Terrace' },
+                      { iconKey: 'document' as const, label: 'Full English guide by Digital Detox Japan' },
                     ].map((item) => (
                       <li key={item.label} className="flex items-center gap-3 text-stone-700">
-                        <span className="text-xl w-8 flex-shrink-0">{item.icon}</span>
+                        <Ico
+                          path={PATHS[item.iconKey]}
+                          className="w-5 h-5 flex-shrink-0 text-forest-500"
+                        />
                         <span className="text-sm">{item.label}</span>
                       </li>
                     ))}
@@ -291,13 +302,20 @@ export default function HomePage() {
             Request your dates
           </Link>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-stone-400">
-            <span className="flex items-center gap-2">✉️ <span>Quick response</span></span>
+            <span className="flex items-center gap-2">
+              <Ico path={PATHS.envelope} className="w-4 h-4" />
+              <span>Quick response</span>
+            </span>
             <span className="hidden sm:inline text-stone-700">·</span>
-            <span className="flex items-center gap-2">💳 <span>No upfront payment</span></span>
+            <span className="flex items-center gap-2">
+              <Ico path={PATHS.creditCard} className="w-4 h-4" />
+              <span>No upfront payment</span>
+            </span>
             <span className="hidden sm:inline text-stone-700">·</span>
-            <span className="flex items-center gap-2">🇬🇧 <span>English support</span></span>
-            <span className="hidden sm:inline text-stone-700">·</span>
-            <span className="flex items-center gap-2">🔄 <span>Free cancellation</span></span>
+            <span className="flex items-center gap-2">
+              <Ico path={PATHS.globe} className="w-4 h-4" />
+              <span>English support</span>
+            </span>
           </div>
         </div>
       </section>
