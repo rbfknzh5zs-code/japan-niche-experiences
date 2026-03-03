@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendContactEmail, type ContactFormData } from '@/lib/email'
+import { getSupabaseClient } from '@/lib/db'
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,10 +23,32 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
-    // Guests must be 1–4
+    // Guests must be 1–8
     const guests = parseInt(String(body.guests), 10)
-    if (isNaN(guests) || guests < 1 || guests > 4) {
-      return NextResponse.json({ error: 'Guests must be between 1 and 4' }, { status: 400 })
+    if (isNaN(guests) || guests < 1 || guests > 8) {
+      return NextResponse.json({ error: 'Guests must be between 1 and 8' }, { status: 400 })
+    }
+
+    // ── Save to database ──────────────────────────────────────────────────────
+    try {
+      const db = getSupabaseClient()
+      const { error: dbError } = await db
+        .from('reservation_requests')
+        .insert({
+          desired_check_in_date: body.desiredCheckInDate!,
+          guests,
+          name: body.name!.trim(),
+          email: body.email!.trim(),
+          whatsapp: body.whatsapp?.trim() || null,
+          country: body.country?.trim() || null,
+          message: body.message?.trim() || null,
+        })
+      if (dbError) {
+        console.error('[contact/route] DB insert failed:', dbError.message)
+      }
+    } catch (dbErr) {
+      console.error('[contact/route] DB exception:', dbErr)
+      // DB failure does not block email sending
     }
 
     // ── Send email ────────────────────────────────────────────────────────────

@@ -84,6 +84,7 @@ export default function ContactForm() {
             id="desiredCheckInDate"
             name="desiredCheckInDate"
             required
+            lang="en-US"
             className="input-base"
           />
         </div>
@@ -98,6 +99,10 @@ export default function ContactForm() {
             <option value="2">2 guests</option>
             <option value="3">3 guests</option>
             <option value="4">4 guests</option>
+            <option value="5">5 guests</option>
+            <option value="6">6 guests</option>
+            <option value="7">7 guests</option>
+            <option value="8">8 guests</option>
           </select>
         </div>
       </div>
