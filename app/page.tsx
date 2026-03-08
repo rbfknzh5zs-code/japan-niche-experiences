@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Hero from '@/components/Hero'
 import JsonLd from '@/components/JsonLd'
+import WhyResetMattersSection from '@/components/WhyResetMattersSection'
 
 export const metadata: Metadata = {
   title: 'Digital Detox in Japan — Unplug, Relax, Reconnect',
@@ -79,15 +80,6 @@ const STEPS = [
   },
 ]
 
-const INCLUDES = [
-  { iconKey: 'home'     as const, label: '1-night glamping stay' },
-  { iconKey: 'fire'     as const, label: 'BBQ plan included' },
-  { iconKey: 'document' as const, label: 'English guide PDF' },
-  { iconKey: 'sparkles' as const, label: 'Onsen area map' },
-  { iconKey: 'video'    as const, label: 'Getting-there directions video' },
-  { iconKey: 'book'     as const, label: 'Digital detox mini guide' },
-]
-
 export default function HomePage() {
   const productSchema = {
     '@context': 'https://schema.org',
@@ -98,8 +90,8 @@ export default function HomePage() {
     brand: { '@type': 'Brand', name: 'Digital Detox Japan' },
     offers: {
       '@type': 'Offer',
-      priceCurrency: 'JPY',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: 15000, priceCurrency: 'JPY' },
+      priceCurrency: 'USD',
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: 100, priceCurrency: 'USD' },
       availability: 'https://schema.org/InStock',
       url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitaldetoxjapan.com'}/packages/digital-detox-starter`,
     },
@@ -122,18 +114,18 @@ export default function HomePage() {
       />
 
       {/* ── Manifesto strip ── */}
-      <section className="bg-forest-600 py-10 px-6">
-        <p className="mx-auto max-w-2xl text-center font-display text-xl font-light italic leading-relaxed text-white/90">
+      <section className="bg-zinc-900 border-y border-zinc-800 py-10 px-6">
+        <p className="mx-auto max-w-2xl text-center font-display text-xl font-light italic leading-relaxed text-zinc-300">
           "In a world of infinite scrolling, the most radical thing you can do is stop.
           Put down the phone. Step into the forest. Find yourself in the silence."
         </p>
       </section>
 
       {/* ── Problem section ── */}
-      <section className="bg-stone-50 py-24 px-6">
+      <section className="bg-zinc-950 py-24 px-6">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5">The Problem</p>
-          <h2 className="font-display text-4xl font-light text-stone-900 leading-tight max-w-2xl">
+          <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase mb-5">The Problem</p>
+          <h2 className="font-display text-4xl font-light text-white leading-tight max-w-2xl">
             Screen fatigue is real — and Japan is the antidote.
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
@@ -142,27 +134,27 @@ export default function HomePage() {
               { stat: '30 min', label: 'Average time outdoors', sub: 'per day in the same population' },
               { stat: '58%', label: 'Report digital burnout', sub: 'and actively seek ways to disconnect' },
             ].map((item) => (
-              <div key={item.stat} className="rounded-2xl bg-white border border-stone-200 p-8">
-                <p className="font-display text-5xl font-light text-forest-600">{item.stat}</p>
-                <p className="mt-2 font-medium text-stone-800">{item.label}</p>
-                <p className="mt-1 text-sm text-stone-500">{item.sub}</p>
+              <div key={item.stat} className="rounded-2xl bg-zinc-900 border border-zinc-800 p-8">
+                <p className="font-display text-5xl font-light text-forest-400">{item.stat}</p>
+                <p className="mt-2 font-medium text-zinc-100">{item.label}</p>
+                <p className="mt-1 text-sm text-zinc-500">{item.sub}</p>
               </div>
             ))}
           </div>
-          <p className="mt-10 text-lg text-stone-600 leading-relaxed max-w-3xl">
-            Japan pioneered <strong className="text-stone-800">shinrin-yoku</strong> (forest bathing) as a health practice. Its onsen culture is thousands of years old. Zen tradition has been practiced in these mountains for centuries. This country was built for digital detox — and we make it effortless for English-speaking visitors.
+          <p className="mt-10 text-lg text-zinc-400 leading-relaxed max-w-3xl">
+            Japan pioneered <strong className="text-zinc-200">shinrin-yoku</strong> (forest bathing) as a health practice. Its onsen culture is thousands of years old. Zen tradition has been practiced in these mountains for centuries. This country was built for digital detox — and we make it effortless for English-speaking visitors.
           </p>
         </div>
       </section>
 
       {/* ── Solution ── */}
-      <section className="bg-stone-100 py-24 px-6">
+      <section className="bg-zinc-900 py-24 px-6">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5">The Solution</p>
-          <h2 className="font-display text-4xl font-light text-stone-900 leading-tight max-w-2xl">
+          <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase mb-5">The Solution</p>
+          <h2 className="font-display text-4xl font-light text-white leading-tight max-w-2xl">
             You don't need another app. You need a forest.
           </h2>
-          <p className="mt-6 text-lg text-stone-600 leading-relaxed max-w-2xl">
+          <p className="mt-6 text-lg text-zinc-400 leading-relaxed max-w-2xl">
             We handle every detail — in Japanese — so you arrive with nothing to figure out and everything to enjoy.
           </p>
           <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
@@ -176,39 +168,60 @@ export default function HomePage() {
               'All Japanese communication handled for you',
               'Email support before and during your stay',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-stone-700">
+              <li key={item} className="flex items-start gap-3 text-zinc-300">
                 <Ico
                   path={PATHS.check}
-                  className="mt-0.5 flex-shrink-0 w-5 h-5 text-forest-600"
+                  className="mt-0.5 flex-shrink-0 w-5 h-5 text-forest-400"
                 />
                 <span className="leading-snug">{item}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-8 font-display text-xl italic text-forest-700">
+          <p className="mt-8 font-display text-xl italic text-forest-400">
             Encouraged, not enforced.
           </p>
         </div>
       </section>
 
+      {/* ── Why This Reset Matters ── */}
+      <WhyResetMattersSection />
+
       {/* ── Packages ── */}
-      <section className="bg-white py-24 px-6">
+      <section className="bg-zinc-950 py-24 px-6">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5">Packages</p>
-          <h2 className="font-display text-4xl font-light text-stone-900 mb-12">Choose Your Experience</h2>
+          <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase mb-5">Packages</p>
+          <h2 className="font-display text-4xl font-light text-white mb-12">Choose Your Experience</h2>
 
           <div className="space-y-8">
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-zinc-400">
+              <span className="flex items-center gap-2">
+                <Ico path={PATHS.envelope} className="w-4 h-4 text-forest-400" />
+                <span>Quick response</span>
+              </span>
+              <span className="hidden sm:inline text-zinc-600">·</span>
+              <span className="flex items-center gap-2">
+                <Ico path={PATHS.creditCard} className="w-4 h-4 text-forest-400" />
+                <span>No upfront payment</span>
+              </span>
+              <span className="hidden sm:inline text-zinc-600">·</span>
+              <span className="flex items-center gap-2">
+                <Ico path={PATHS.globe} className="w-4 h-4 text-forest-400" />
+                <span>English support</span>
+              </span>
+            </div>
+
             {/* Card 1: Nasu Highland Glamping — Featured */}
-            <div className="rounded-2xl border border-earth-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-              <div className="p-12 flex flex-col justify-end min-h-64 relative overflow-hidden bg-stone-900">
+            <div className="rounded-2xl border border-zinc-800 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+              <div className="p-12 flex flex-col justify-end min-h-64 relative overflow-hidden bg-black">
                 <Image
                   src="/images/bv.jpg"
                   alt="Glamping B&V Nasu Kogen — dome cabin exterior"
                   fill
-                  className="object-cover object-center opacity-55"
+                  className="object-cover object-center opacity-50"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <span className="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest text-earth-300 uppercase mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-earth-400 inline-block" />
                   Featured Destination
@@ -218,9 +231,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="p-10 flex flex-col justify-between">
+              <div className="p-10 flex flex-col justify-between bg-zinc-900">
                 <div>
-                  <p className="text-xs text-stone-500 mb-4">Nasu Kogen · Tochigi Prefecture</p>
+                  <p className="text-xs text-zinc-500 mb-4">Nasu Kogen · Tochigi Prefecture</p>
                   <ul className="space-y-3 mb-6">
                     {[
                       { iconKey: 'sparkles' as const, label: 'Private natural hot spring — every cabin' },
@@ -230,31 +243,38 @@ export default function HomePage() {
                       { iconKey: 'beaker'   as const, label: 'Free bar at B&V Terrace' },
                       { iconKey: 'document' as const, label: 'Full English guide by Digital Detox Japan' },
                     ].map((item) => (
-                      <li key={item.label} className="flex items-center gap-3 text-stone-700">
+                      <li key={item.label} className="flex items-center gap-3 text-zinc-300">
                         <Ico
                           path={PATHS[item.iconKey]}
-                          className="w-5 h-5 flex-shrink-0 text-forest-500"
+                          className="w-5 h-5 flex-shrink-0 text-forest-400"
                         />
                         <span className="text-sm">{item.label}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-stone-500">
+                  <p className="text-sm text-zinc-500">
                     5 dome types. Up to 8 guests. Dog-friendly option available.
                   </p>
                 </div>
 
-                <div className="border-t border-stone-100 pt-6 flex items-end justify-between">
-                  <div>
-                    <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">From</p>
-                    <p className="font-display text-3xl text-stone-900">¥45,000</p>
-                    <p className="text-xs text-stone-400">/ cabin per night</p>
+                <div className="border-t border-zinc-800 pt-6 space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="rounded-lg bg-zinc-800 border border-zinc-700 px-4 py-3">
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-1">Accommodation</p>
+                      <p className="text-sm font-medium text-zinc-200">Quoted by email</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">We book on your behalf</p>
+                    </div>
+                    <div className="rounded-lg bg-forest-400/10 border border-forest-400/30 px-4 py-3">
+                      <p className="text-xs text-forest-500 uppercase tracking-widest mb-1">Our fee</p>
+                      <p className="text-xl font-semibold text-forest-500">$100</p>
+                      <p className="text-xs text-forest-400 mt-0.5">per booking</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <Link href="/packages/nasu-highland-glamping" className="btn-ghost text-sm">
+                  <div className="flex gap-2">
+                    <Link href="/packages/nasu-highland-glamping" className="btn-ghost text-sm flex-1 text-center">
                       Package details
                     </Link>
-                    <Link href="/contact" className="btn-primary text-sm">
+                    <Link href="/contact" className="btn-primary text-sm flex-1 text-center">
                       Request your dates
                     </Link>
                   </div>
@@ -267,20 +287,23 @@ export default function HomePage() {
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="bg-stone-50 py-24 px-6">
+      <section id="how-it-works" className="bg-zinc-900 py-14 px-6">
         <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-600 uppercase mb-5">Process</p>
-          <h2 className="font-display text-4xl font-light text-stone-900 mb-16">How It Works</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 mb-8">
+            <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase">Process</p>
+            <span className="hidden sm:inline text-zinc-700">—</span>
+            <h2 className="font-display text-2xl font-light text-white">How It Works</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 rounded-xl overflow-hidden">
             {STEPS.map((step) => (
-              <div key={step.num} className="relative">
-                <p className="font-display text-5xl font-light text-forest-200 leading-none mb-4">{step.num}</p>
-                <h3 className="font-display text-xl font-light text-stone-800 mb-3">{step.title}</h3>
-                <p className="text-sm text-stone-500 leading-relaxed">{step.body}</p>
+              <div key={step.num} className="bg-zinc-900 px-6 py-6">
+                <p className="text-xs text-forest-400/60 tracking-widest mb-3">{step.num}</p>
+                <h3 className="font-display text-sm font-medium text-zinc-100 mb-2 leading-snug">{step.title}</h3>
+                <p className="text-xs text-zinc-500 leading-relaxed">{step.body}</p>
               </div>
             ))}
           </div>
-          <div className="mt-14 text-center">
+          <div className="mt-8">
             <Link href="/contact" className="btn-primary">
               Request your dates
             </Link>
@@ -288,37 +311,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Bottom CTA ── */}
-      <section className="bg-stone-900 py-24 px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-lg italic text-stone-400 mb-4">Digital fatigue × Japanese quiet</p>
-          <h2 className="font-display text-4xl font-light text-white mb-6">
-            Ready to unplug in Japan?
-          </h2>
-          <p className="text-stone-300 leading-relaxed mb-10 max-w-xl mx-auto">
-            Send us your dates and group size. We'll confirm availability and take care of everything else.
-          </p>
-          <Link href="/contact" className="btn-primary text-base py-4 px-10">
-            Request your dates
-          </Link>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-stone-400">
-            <span className="flex items-center gap-2">
-              <Ico path={PATHS.envelope} className="w-4 h-4" />
-              <span>Quick response</span>
-            </span>
-            <span className="hidden sm:inline text-stone-700">·</span>
-            <span className="flex items-center gap-2">
-              <Ico path={PATHS.creditCard} className="w-4 h-4" />
-              <span>No upfront payment</span>
-            </span>
-            <span className="hidden sm:inline text-stone-700">·</span>
-            <span className="flex items-center gap-2">
-              <Ico path={PATHS.globe} className="w-4 h-4" />
-              <span>English support</span>
-            </span>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const NAV = [
   { label: 'Packages', href: '/packages/digital-detox-starter' },
@@ -11,36 +11,23 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-stone-200/80'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="relative z-50 border-b border-zinc-800/50 bg-zinc-950/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <span
-            className="font-display text-2xl text-forest-600 group-hover:text-forest-700 transition-colors"
+            className="font-display text-2xl text-forest-400 group-hover:text-forest-300 transition-colors"
             style={{ fontFamily: 'serif' }}
           >
             禅
           </span>
           <div>
-            <p className="text-sm font-semibold tracking-widest text-stone-800 uppercase leading-none">
+            <p className="text-sm font-semibold tracking-widest text-zinc-100 uppercase leading-none">
               Digital Detox
             </p>
-            <p className="text-xs tracking-[0.3em] text-stone-500 uppercase leading-tight">
+            <p className="text-xs tracking-[0.3em] text-zinc-500 uppercase leading-tight">
               Japan
             </p>
           </div>
@@ -52,7 +39,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm tracking-wide text-stone-600 hover:text-forest-600 transition-colors"
+              className="text-sm tracking-wide text-zinc-400 hover:text-forest-400 transition-colors"
             >
               {item.label}
             </Link>
@@ -70,13 +57,13 @@ export default function Header() {
             className="md:hidden flex flex-col gap-1.5 p-1"
           >
             <span
-              className={`block h-px w-6 bg-stone-700 transition-transform duration-200 ${open ? 'translate-y-2 rotate-45' : ''}`}
+              className={`block h-px w-6 bg-zinc-300 transition-transform duration-200 ${open ? 'translate-y-2 rotate-45' : ''}`}
             />
             <span
-              className={`block h-px w-6 bg-stone-700 transition-opacity duration-200 ${open ? 'opacity-0' : ''}`}
+              className={`block h-px w-6 bg-zinc-300 transition-opacity duration-200 ${open ? 'opacity-0' : ''}`}
             />
             <span
-              className={`block h-px w-6 bg-stone-700 transition-transform duration-200 ${open ? '-translate-y-2.5 -rotate-45' : ''}`}
+              className={`block h-px w-6 bg-zinc-300 transition-transform duration-200 ${open ? '-translate-y-2.5 -rotate-45' : ''}`}
             />
           </button>
         </div>
@@ -84,13 +71,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-stone-200 px-6 pb-6 pt-4 space-y-4">
+        <div className="md:hidden bg-zinc-950 border-t border-zinc-800 px-6 pb-6 pt-4 space-y-4">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block text-sm text-stone-700 hover:text-forest-600 transition-colors py-1"
+              className="block text-sm text-zinc-300 hover:text-forest-400 transition-colors py-1"
             >
               {item.label}
             </Link>

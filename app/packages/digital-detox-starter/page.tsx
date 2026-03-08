@@ -158,9 +158,24 @@ export default function DigitalDetoxStarterPage() {
             {/* Sticky sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-28 rounded-2xl border border-stone-200 bg-stone-50 p-8">
-                <p className="text-xs font-semibold tracking-widest text-stone-400 uppercase mb-2">From</p>
-                <p className="font-display text-4xl font-light text-stone-900 mb-1">¥15,000</p>
-                <p className="text-sm text-stone-400 mb-6">/ group (1–4 guests)</p>
+
+                {/* Pricing */}
+                <div className="space-y-2 mb-6">
+                  <div className="rounded-lg bg-zinc-800 border border-zinc-700 px-4 py-3 flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest mb-0.5">Accommodation</p>
+                      <p className="text-sm font-medium text-zinc-200">Quoted by email</p>
+                    </div>
+                    <p className="text-xs text-zinc-500 text-right shrink-0">We book on<br/>your behalf</p>
+                  </div>
+                  <div className="rounded-lg bg-forest-400/10 border border-forest-400/30 px-4 py-3 flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-xs text-forest-500 uppercase tracking-widest mb-0.5">Our fee</p>
+                      <p className="text-xl font-semibold text-forest-500">$100</p>
+                    </div>
+                    <p className="text-xs text-forest-400 text-right shrink-0">per<br/>booking</p>
+                  </div>
+                </div>
 
                 <div className="space-y-2 mb-8 text-sm text-stone-600">
                   <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> 1–4 guests</p>

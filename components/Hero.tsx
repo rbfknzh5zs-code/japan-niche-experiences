@@ -27,7 +27,7 @@ export default function Hero({
   bgImage,
 }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-stone-900 pt-32 pb-24">
+    <section className="relative overflow-hidden bg-stone-900 pt-20 pb-24">
       {/* Background photo */}
       {bgImage && (
         <Image
@@ -40,8 +40,8 @@ export default function Hero({
         />
       )}
       {/* Subtle gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-900/40 via-stone-900 to-earth-900/30 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,rgba(61,107,74,0.15)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-forest-900/50 via-stone-900 to-earth-900/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,rgba(134,68,16,0.18)_0%,transparent_60%)] pointer-events-none" />
 
       {/* Large kanji background */}
       <div
