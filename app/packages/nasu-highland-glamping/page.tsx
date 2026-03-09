@@ -8,7 +8,7 @@ import ShareButtons from '@/components/ShareButtons'
 export const metadata: Metadata = {
   title: 'Nasu Highland Glamping — Private Onsen & Barrel Sauna in Every Cabin',
   description:
-    'Glamping B&V Nasu Kogen: every dome cabin includes a private natural hot spring AND a private Finnish barrel sauna. Campfire, BBQ, free bar. Tochigi Prefecture. From ¥45,000/cabin.',
+    'Glamping B&V Nasu Kogen: every dome cabin includes a private natural hot spring AND a private Finnish barrel sauna. Campfire, BBQ, free bar. Tochigi Prefecture. $100 coordination fee.',
   alternates: { canonical: '/packages/nasu-highland-glamping' },
   openGraph: {
     title: 'Nasu Highland Glamping — Private Onsen & Barrel Sauna in Every Cabin',
@@ -186,7 +186,7 @@ export default function NasuHighlandGlampingPage() {
       </section>
 
       {/* Package overview */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-zinc-950 py-20 px-6">
         <div className="mx-auto max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
@@ -195,14 +195,14 @@ export default function NasuHighlandGlampingPage() {
 
               {/* What's included */}
               <div>
-                <h2 className="font-display text-3xl font-light text-stone-900 mb-8">What's Included</h2>
+                <h2 className="font-display text-3xl font-light text-white mb-8">What's Included</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {INCLUDED.map((item) => (
                     <div key={item.title} className="flex gap-4">
                       <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
                       <div>
-                        <h3 className="font-semibold text-stone-800 mb-1">{item.title}</h3>
-                        <p className="text-sm text-stone-500 leading-relaxed">{item.desc}</p>
+                        <h3 className="font-semibold text-zinc-100 mb-1">{item.title}</h3>
+                        <p className="text-sm text-zinc-500 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -210,24 +210,24 @@ export default function NasuHighlandGlampingPage() {
               </div>
 
               {/* Onsen & Sauna deep dive */}
-              <div className="rounded-2xl bg-earth-50 border border-earth-200 p-8 space-y-6">
-                <h2 className="font-display text-2xl font-light text-earth-900">
+              <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-8 space-y-6">
+                <h2 className="font-display text-2xl font-light text-white">
                   The Onsen & Sauna Experience
                 </h2>
                 <div className="space-y-5">
                   <div>
-                    <h3 className="font-semibold text-stone-800 mb-2 flex items-center gap-2">
+                    <h3 className="font-semibold text-zinc-100 mb-2 flex items-center gap-2">
                       <span>♨️</span> Natural hot spring water — 100% private
                     </h3>
-                    <p className="text-sm text-stone-600 leading-relaxed">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
                       The Nasu Kogen area of Tochigi Prefecture is one of Japan's premier hot spring regions. At Glamping B&V, each cabin is fed directly by natural mineral-rich spring water — not pumped or shared with other guests. You have your own outdoor bath, completely private, open-air. Use it at midnight. Use it at 6am. It's yours for the stay.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-stone-800 mb-2 flex items-center gap-2">
+                    <h3 className="font-semibold text-zinc-100 mb-2 flex items-center gap-2">
                       <span>🪣</span> Finnish barrel sauna + cold water plunge
                     </h3>
-                    <p className="text-sm text-stone-600 leading-relaxed">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
                       Every cabin has its own barrel sauna — the distinctive round-shaped Finnish design. Heat up inside, then step out to the cold plunge tub. Repeat. This is <em>totonoi</em> (整い) — the Japanese sauna ritual of finding equilibrium through heat and cold. In the middle of a highland forest, it hits different.
                     </p>
                   </div>
@@ -236,25 +236,25 @@ export default function NasuHighlandGlampingPage() {
 
               {/* Dome types */}
               <div>
-                <h2 className="font-display text-3xl font-light text-stone-900 mb-6">Choose Your Dome</h2>
-                <p className="text-stone-600 mb-6 leading-relaxed text-sm">
+                <h2 className="font-display text-3xl font-light text-white mb-6">Choose Your Dome</h2>
+                <p className="text-zinc-400 mb-6 leading-relaxed text-sm">
                   Five dome types are available. All come with private onsen, sauna, and campfire. Tell us your group size and we'll recommend the right fit.
                 </p>
                 <div className="space-y-3">
                   {DOME_TYPES.map((dome) => (
-                    <div key={dome.name} className="flex gap-4 py-4 border-b border-stone-100">
+                    <div key={dome.name} className="flex gap-4 py-4 border-b border-zinc-800">
                       <span className="text-xl flex-shrink-0 mt-0.5">⛺</span>
                       <div className="flex-1">
                         <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                          <p className="font-semibold text-stone-800">{dome.name}</p>
+                          <p className="font-semibold text-zinc-100">{dome.name}</p>
                           {dome.size !== '—' && (
-                            <span className="text-xs text-stone-400">({dome.size} diameter)</span>
+                            <span className="text-xs text-zinc-600">({dome.size} diameter)</span>
                           )}
-                          <span className="text-xs font-medium text-forest-600 bg-forest-50 rounded-full px-2 py-0.5">
+                          <span className="text-xs font-medium text-forest-400 bg-forest-900/40 rounded-full px-2 py-0.5">
                             {dome.capacity}
                           </span>
                         </div>
-                        <p className="text-sm text-stone-500">{dome.note}</p>
+                        <p className="text-sm text-zinc-500">{dome.note}</p>
                       </div>
                     </div>
                   ))}
@@ -263,14 +263,14 @@ export default function NasuHighlandGlampingPage() {
 
               {/* What's NOT included */}
               <div>
-                <h2 className="font-display text-3xl font-light text-stone-900 mb-6">What's Not Included</h2>
+                <h2 className="font-display text-3xl font-light text-white mb-6">What's Not Included</h2>
                 <div className="space-y-4">
                   {NOT_INCLUDED.map((item) => (
-                    <div key={item.item} className="flex gap-4 py-4 border-b border-stone-100">
-                      <span className="text-stone-400 flex-shrink-0 mt-0.5">✕</span>
+                    <div key={item.item} className="flex gap-4 py-4 border-b border-zinc-800">
+                      <span className="text-zinc-600 flex-shrink-0 mt-0.5">✕</span>
                       <div>
-                        <p className="font-medium text-stone-700">{item.item}</p>
-                        <p className="text-sm text-stone-400 mt-0.5">{item.note}</p>
+                        <p className="font-medium text-zinc-200">{item.item}</p>
+                        <p className="text-sm text-zinc-500 mt-0.5">{item.note}</p>
                       </div>
                     </div>
                   ))}
@@ -279,55 +279,169 @@ export default function NasuHighlandGlampingPage() {
 
               {/* Location */}
               <div>
-                <h2 className="font-display text-3xl font-light text-stone-900 mb-6">Getting There</h2>
-                <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 space-y-4 text-sm text-stone-600">
-                  <div className="flex gap-3">
-                    <span className="flex-shrink-0">🚗</span>
-                    <div>
-                      <p className="font-medium text-stone-800 mb-1">By car (recommended)</p>
-                      <p>~7 minutes from Nasu IC on the Tohoku Expressway from Tokyo. ~2.5 hrs from central Tokyo by car.</p>
+                <h2 className="font-display text-3xl font-light text-white mb-2">Getting There</h2>
+                <p className="text-zinc-500 text-sm mb-8">From Japan's international airports to Nasu Kogen, Tochigi</p>
+
+                {/* Airport journey cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                  {/* NRT */}
+                  <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
+                    <div className="flex items-start gap-3 mb-5">
+                      <span className="text-xs font-bold tracking-widest text-forest-400 bg-forest-400/10 border border-forest-400/20 rounded px-2 py-1 mt-0.5">NRT</span>
+                      <div>
+                        <p className="font-semibold text-zinc-100">Narita International Airport</p>
+                        <p className="text-xs text-zinc-500 mt-0.5">Most international long-haul flights</p>
+                      </div>
+                    </div>
+
+                    {/* Train route */}
+                    <div className="mb-5">
+                      <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">🚄 By Train</p>
+                      <div className="relative pl-5">
+                        <div className="absolute left-[7px] top-4 bottom-4 w-px bg-zinc-700" />
+                        {[
+                          { dot: '✈', label: 'Narita Airport', sub: null },
+                          { dot: '→', label: 'Narita Express (N\'EX)', sub: '~60 min · ¥3,000' },
+                          { dot: '🔄', label: 'Tokyo Station', sub: 'Transfer to Shinkansen' },
+                          { dot: '→', label: 'Tohoku Shinkansen (Yamabiko)', sub: '~75 min · ¥5,000' },
+                          { dot: '🚉', label: 'Nasu-Shiobara Station', sub: 'Transfer to taxi' },
+                          { dot: '→', label: 'Taxi', sub: '~30 min · ¥3,000–4,000' },
+                          { dot: '⛺', label: 'Nasu Highland Glamping', sub: null },
+                        ].map((step, i) => (
+                          <div key={i} className="relative flex items-start gap-3 mb-2.5">
+                            <span className="absolute -left-5 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-600 flex items-center justify-center text-[8px] mt-0.5 flex-shrink-0">{step.dot}</span>
+                            <div>
+                              <p className={`text-xs font-medium ${i === 6 ? 'text-forest-400' : 'text-zinc-300'}`}>{step.label}</p>
+                              {step.sub && <p className="text-[11px] text-zinc-600">{step.sub}</p>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-3 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-zinc-400">Total journey</span>
+                        <span className="text-sm font-semibold text-white">~2.5–3 hrs</span>
+                      </div>
+                    </div>
+
+                    {/* Car */}
+                    <div className="border-t border-zinc-800 pt-4">
+                      <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">🚗 By Rental Car</p>
+                      <p className="text-xs text-zinc-500">Tohoku Expressway → Nasu IC → ~7 min to site</p>
+                      <div className="mt-2 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-zinc-400">Total journey</span>
+                        <span className="text-sm font-semibold text-white">~2.5–3 hrs</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex gap-3">
-                    <span className="flex-shrink-0">🚄</span>
-                    <div>
-                      <p className="font-medium text-stone-800 mb-1">By Shinkansen</p>
-                      <p>JR Tohoku Shinkansen to Nasu-Shiobara Station (~75 min from Tokyo). Taxi from the station (~30 min). We include all directions in your English guide.</p>
+
+                  {/* HND */}
+                  <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
+                    <div className="flex items-start gap-3 mb-5">
+                      <span className="text-xs font-bold tracking-widest text-forest-400 bg-forest-400/10 border border-forest-400/20 rounded px-2 py-1 mt-0.5">HND</span>
+                      <div>
+                        <p className="font-semibold text-zinc-100">Haneda Airport</p>
+                        <p className="text-xs text-zinc-500 mt-0.5">Closer to central Tokyo — faster overall</p>
+                      </div>
+                    </div>
+
+                    {/* Train route */}
+                    <div className="mb-5">
+                      <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">🚄 By Train</p>
+                      <div className="relative pl-5">
+                        <div className="absolute left-[7px] top-4 bottom-4 w-px bg-zinc-700" />
+                        {[
+                          { dot: '✈', label: 'Haneda Airport', sub: null },
+                          { dot: '→', label: 'Keikyu Line', sub: '~25 min · ¥600' },
+                          { dot: '🔄', label: 'Shinagawa Station', sub: 'Transfer to Shinkansen' },
+                          { dot: '→', label: 'Tohoku Shinkansen (Yamabiko)', sub: '~80 min · ¥5,500' },
+                          { dot: '🚉', label: 'Nasu-Shiobara Station', sub: 'Transfer to taxi' },
+                          { dot: '→', label: 'Taxi', sub: '~30 min · ¥3,000–4,000' },
+                          { dot: '⛺', label: 'Nasu Highland Glamping', sub: null },
+                        ].map((step, i) => (
+                          <div key={i} className="relative flex items-start gap-3 mb-2.5">
+                            <span className="absolute -left-5 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-600 flex items-center justify-center text-[8px] mt-0.5 flex-shrink-0">{step.dot}</span>
+                            <div>
+                              <p className={`text-xs font-medium ${i === 6 ? 'text-forest-400' : 'text-zinc-300'}`}>{step.label}</p>
+                              {step.sub && <p className="text-[11px] text-zinc-600">{step.sub}</p>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-3 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-zinc-400">Total journey</span>
+                        <span className="text-sm font-semibold text-white">~2–2.5 hrs</span>
+                      </div>
+                    </div>
+
+                    {/* Car */}
+                    <div className="border-t border-zinc-800 pt-4">
+                      <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">🚗 By Rental Car</p>
+                      <p className="text-xs text-zinc-500">Tohoku Expressway → Nasu IC → ~7 min to site</p>
+                      <div className="mt-2 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-zinc-400">Total journey</span>
+                        <span className="text-sm font-semibold text-white">~2.5–3 hrs</span>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-stone-400 text-xs pt-2 border-t border-stone-200">
-                    Address: 5731-8 Uenodai, Takakukou, Nasu-cho, Nasu-gun, Tochigi 325-0001
-                  </p>
+                </div>
+
+                {/* Context note for international travelers */}
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 mb-4 text-sm">
+                  <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">🌍 For context</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-zinc-500">
+                    <p>🇬🇧 London → Cotswolds: ~2 hrs</p>
+                    <p>🇺🇸 NYC → Philadelphia: ~1.5 hrs</p>
+                    <p>🇦🇺 Sydney → Hunter Valley: ~2.5 hrs</p>
+                  </div>
+                  <p className="text-xs text-zinc-600 mt-2">Nasu Kogen is a comfortable day-trip distance from Tokyo — close enough to be easy, far enough to feel completely away.</p>
+                </div>
+
+                <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-4 text-xs text-zinc-600">
+                  📍 Address: 5731-8 Uenodai, Takakukou, Nasu-cho, Nasu-gun, Tochigi 325-0001 · Step-by-step English directions included in your guide.
                 </div>
               </div>
             </div>
 
             {/* Sticky sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-28 rounded-2xl border border-stone-200 bg-stone-50 p-8">
-                <p className="text-xs font-semibold tracking-widest text-stone-400 uppercase mb-2">From</p>
-                <p className="font-display text-4xl font-light text-stone-900 mb-1">¥45,000</p>
-                <p className="text-sm text-stone-400 mb-6">/ cabin per night</p>
+              <div className="sticky top-28 rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
+                <p className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-4">How pricing works</p>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-start gap-3 text-sm">
+                    <span className="text-base leading-none mt-0.5">🏕️</span>
+                    <div>
+                      <p className="font-medium text-zinc-200">Accommodation</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">We book on your behalf and email you the exact cost. Varies by dates and dome type.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm border-t border-zinc-800 pt-4">
+                    <span className="text-base leading-none mt-0.5">📋</span>
+                    <div>
+                      <p className="font-medium text-zinc-200">Coordination fee</p>
+                      <p className="text-2xl font-semibold text-forest-400 my-1">$100</p>
+                      <p className="text-xs text-zinc-500">English guide · Japanese comms · support</p>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-600 mb-6">All amounts confirmed by email before payment.</p>
 
-                <div className="space-y-2 mb-8 text-sm text-stone-600">
-                  <p className="flex items-center gap-2"><span className="text-earth-500">♨️</span> Private onsen in every cabin</p>
-                  <p className="flex items-center gap-2"><span className="text-earth-500">🪣</span> Private barrel sauna in every cabin</p>
-                  <p className="flex items-center gap-2"><span className="text-earth-500">🔥</span> Private campfire in every cabin</p>
-                  <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> Up to 8 guests</p>
-                  <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> Dog-friendly option available</p>
-                  <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> All English guide included</p>
-                  <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> Reply within 48 hrs (JST)</p>
+                <div className="space-y-2 mb-8 text-sm text-zinc-400">
+                  <p className="flex items-center gap-2"><span>♨️</span> Private onsen in every cabin</p>
+                  <p className="flex items-center gap-2"><span>🪣</span> Private barrel sauna in every cabin</p>
+                  <p className="flex items-center gap-2"><span>🔥</span> Private campfire in every cabin</p>
+                  <p className="flex items-center gap-2"><span className="text-forest-400">✓</span> Up to 8 guests</p>
+                  <p className="flex items-center gap-2"><span className="text-forest-400">✓</span> Dog-friendly option available</p>
                 </div>
 
                 <Link href="/contact" className="btn-primary w-full text-center block mb-4">
                   Request your dates
                 </Link>
-                <p className="text-xs text-center text-stone-400">No payment required at this stage</p>
+                <p className="text-xs text-center text-zinc-600">No payment required at this stage</p>
 
-                <div className="mt-8 pt-6 border-t border-stone-200 space-y-3 text-sm text-stone-500">
-                  <Link href="/faq" className="block hover:text-forest-600 transition-colors">→ Frequently asked questions</Link>
-                  <Link href="/how-it-works" className="block hover:text-forest-600 transition-colors">→ How the process works</Link>
-                  <Link href="/packages/digital-detox-starter" className="block hover:text-forest-600 transition-colors">→ Also: Digital Detox Starter</Link>
+                <div className="mt-8 pt-6 border-t border-zinc-800 space-y-3 text-sm text-zinc-500">
+                  <Link href="/faq" className="block hover:text-forest-400 transition-colors">→ Frequently asked questions</Link>
+                  <Link href="/how-it-works" className="block hover:text-forest-400 transition-colors">→ How the process works</Link>
+                  <Link href="/packages/digital-detox-starter" className="block hover:text-forest-400 transition-colors">→ Also: Digital Detox Starter</Link>
                 </div>
               </div>
             </div>
@@ -336,7 +450,7 @@ export default function NasuHighlandGlampingPage() {
       </section>
 
       {/* Share */}
-      <section className="bg-white py-10 px-6 border-t border-stone-100">
+      <section className="bg-zinc-950 py-10 px-6 border-t border-zinc-900">
         <div className="mx-auto max-w-5xl">
           <ShareButtons
             url="https://digitaldetoxjapan.com/packages/nasu-highland-glamping"
@@ -346,7 +460,7 @@ export default function NasuHighlandGlampingPage() {
       </section>
 
       {/* Philosophy strip */}
-      <section className="bg-earth-900 py-16 px-6">
+      <section className="bg-black py-16 px-6">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-display text-xl italic text-earth-300 mb-3">Onsen. Sauna. Silence.</p>
           <p className="text-earth-200/70 leading-relaxed">

@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -6,7 +7,7 @@ interface HeroProps {
   title: string
   titleEm?: string        // italic/em part of title
   subtitle?: string
-  description: string
+  description: React.ReactNode
   cta?: { label: string; href: string }
   ctaSecondary?: { label: string; href: string }
   kanji?: string          // large bg kanji character
@@ -35,13 +36,13 @@ export default function Hero({
           alt=""
           fill
           priority
-          className="object-cover object-center opacity-40"
+          className="object-cover object-center opacity-70"
           sizes="100vw"
         />
       )}
       {/* Subtle gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-900/50 via-stone-900 to-earth-900/40 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,rgba(134,68,16,0.18)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-forest-900/40 via-stone-900/50 to-earth-900/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,rgba(134,68,16,0.10)_0%,transparent_60%)] pointer-events-none" />
 
       {/* Large kanji background */}
       <div

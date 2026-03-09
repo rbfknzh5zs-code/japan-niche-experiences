@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Hero from '@/components/Hero'
 import FAQAccordion, { type FAQItem } from '@/components/FAQAccordion'
 import JsonLd from '@/components/JsonLd'
 
@@ -76,21 +77,13 @@ export default function FAQPage() {
     <>
       <JsonLd data={faqSchema} />
 
-      {/* Simple hero */}
-      <section className="bg-stone-900 pt-32 pb-20 px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase mb-5">FAQ</p>
-          <h1 className="font-display text-5xl font-light text-white mb-6">
-            Common Questions
-          </h1>
-          <p className="text-stone-300 text-lg leading-relaxed">
-            Everything you need to know about Digital Detox Japan experiences. Can't find your answer?{' '}
-            <Link href="/contact" className="text-forest-400 underline underline-offset-2 hover:text-forest-300">
-              Contact us directly.
-            </Link>
-          </p>
-        </div>
-      </section>
+      <Hero
+        tag="FAQ"
+        title="Common Questions"
+        description={<>Everything you need to know about Digital Detox Japan experiences. Can't find your answer?{' '}<Link href="/contact" className="text-forest-400 underline underline-offset-2 hover:text-forest-300">Contact us directly.</Link></>}
+        bgImage="/images/hero-forest.jpg"
+        kanji="問"
+      />
 
       {/* FAQ List */}
       <section className="bg-white py-20 px-6">

@@ -88,6 +88,7 @@ export default function DigitalDetoxStarterPage() {
         description="One night of glamping in Japan's wilderness. BBQ, onsen, an English guide for everything — and nothing to plan. Just arrive, breathe, and let the forest do its work."
         cta={{ label: 'Request your dates', href: '/contact' }}
         kanji="一"
+        bgImage="/images/hero-forest.jpg"
       />
 
       {/* Package overview */}
@@ -152,6 +153,125 @@ export default function DigitalDetoxStarterPage() {
                     </li>
                   ))}
                 </ol>
+              </div>
+
+              {/* Getting There */}
+              <div>
+                <h2 className="font-display text-3xl font-light text-stone-900 mb-2">Getting There</h2>
+                <p className="text-stone-500 text-sm mb-8">From Japan's international airports to Nasu Kogen, Tochigi</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                  {/* NRT */}
+                  <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6">
+                    <div className="flex items-start gap-3 mb-5">
+                      <span className="text-xs font-bold tracking-widest text-forest-600 bg-forest-50 border border-forest-200 rounded px-2 py-1 mt-0.5">NRT</span>
+                      <div>
+                        <p className="font-semibold text-stone-800">Narita International Airport</p>
+                        <p className="text-xs text-stone-400 mt-0.5">Most international long-haul flights</p>
+                      </div>
+                    </div>
+
+                    <div className="mb-5">
+                      <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">🚄 By Train</p>
+                      <div className="relative pl-5">
+                        <div className="absolute left-[7px] top-4 bottom-4 w-px bg-stone-200" />
+                        {[
+                          { dot: '✈', label: 'Narita Airport', sub: null },
+                          { dot: '→', label: 'Narita Express (N\'EX)', sub: '~60 min · ¥3,000' },
+                          { dot: '🔄', label: 'Tokyo Station', sub: 'Transfer to Shinkansen' },
+                          { dot: '→', label: 'Tohoku Shinkansen (Yamabiko)', sub: '~75 min · ¥5,000' },
+                          { dot: '🚉', label: 'Nasu-Shiobara Station', sub: 'Transfer to taxi' },
+                          { dot: '→', label: 'Taxi', sub: '~30 min · ¥3,000–4,000' },
+                          { dot: '⛺', label: 'Glamping site', sub: null },
+                        ].map((step, i) => (
+                          <div key={i} className="relative flex items-start gap-3 mb-2.5">
+                            <span className="absolute -left-5 w-3.5 h-3.5 rounded-full bg-stone-100 border border-stone-300 flex items-center justify-center text-[8px] mt-0.5 flex-shrink-0">{step.dot}</span>
+                            <div>
+                              <p className={`text-xs font-medium ${i === 6 ? 'text-forest-600' : 'text-stone-700'}`}>{step.label}</p>
+                              {step.sub && <p className="text-[11px] text-stone-400">{step.sub}</p>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-3 rounded-lg bg-stone-100 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-stone-500">Total journey</span>
+                        <span className="text-sm font-semibold text-stone-800">~2.5–3 hrs</span>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-stone-200 pt-4">
+                      <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">🚗 By Rental Car</p>
+                      <p className="text-xs text-stone-400">Tohoku Expressway → Nasu IC → ~7 min to site</p>
+                      <div className="mt-2 rounded-lg bg-stone-100 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-stone-500">Total journey</span>
+                        <span className="text-sm font-semibold text-stone-800">~2.5–3 hrs</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* HND */}
+                  <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6">
+                    <div className="flex items-start gap-3 mb-5">
+                      <span className="text-xs font-bold tracking-widest text-forest-600 bg-forest-50 border border-forest-200 rounded px-2 py-1 mt-0.5">HND</span>
+                      <div>
+                        <p className="font-semibold text-stone-800">Haneda Airport</p>
+                        <p className="text-xs text-stone-400 mt-0.5">Closer to central Tokyo — faster overall</p>
+                      </div>
+                    </div>
+
+                    <div className="mb-5">
+                      <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">🚄 By Train</p>
+                      <div className="relative pl-5">
+                        <div className="absolute left-[7px] top-4 bottom-4 w-px bg-stone-200" />
+                        {[
+                          { dot: '✈', label: 'Haneda Airport', sub: null },
+                          { dot: '→', label: 'Keikyu Line', sub: '~25 min · ¥600' },
+                          { dot: '🔄', label: 'Shinagawa Station', sub: 'Transfer to Shinkansen' },
+                          { dot: '→', label: 'Tohoku Shinkansen (Yamabiko)', sub: '~80 min · ¥5,500' },
+                          { dot: '🚉', label: 'Nasu-Shiobara Station', sub: 'Transfer to taxi' },
+                          { dot: '→', label: 'Taxi', sub: '~30 min · ¥3,000–4,000' },
+                          { dot: '⛺', label: 'Glamping site', sub: null },
+                        ].map((step, i) => (
+                          <div key={i} className="relative flex items-start gap-3 mb-2.5">
+                            <span className="absolute -left-5 w-3.5 h-3.5 rounded-full bg-stone-100 border border-stone-300 flex items-center justify-center text-[8px] mt-0.5 flex-shrink-0">{step.dot}</span>
+                            <div>
+                              <p className={`text-xs font-medium ${i === 6 ? 'text-forest-600' : 'text-stone-700'}`}>{step.label}</p>
+                              {step.sub && <p className="text-[11px] text-stone-400">{step.sub}</p>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-3 rounded-lg bg-stone-100 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-stone-500">Total journey</span>
+                        <span className="text-sm font-semibold text-stone-800">~2–2.5 hrs</span>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-stone-200 pt-4">
+                      <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">🚗 By Rental Car</p>
+                      <p className="text-xs text-stone-400">Tohoku Expressway → Nasu IC → ~7 min to site</p>
+                      <div className="mt-2 rounded-lg bg-stone-100 px-3 py-2 flex items-center justify-between">
+                        <span className="text-xs text-stone-500">Total journey</span>
+                        <span className="text-sm font-semibold text-stone-800">~2.5–3 hrs</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Context for international travelers */}
+                <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 mb-4">
+                  <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">🌍 For context</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-stone-500">
+                    <p>🇬🇧 London → Cotswolds: ~2 hrs</p>
+                    <p>🇺🇸 NYC → Philadelphia: ~1.5 hrs</p>
+                    <p>🇦🇺 Sydney → Hunter Valley: ~2.5 hrs</p>
+                  </div>
+                  <p className="text-xs text-stone-400 mt-2">Nasu Kogen is a comfortable day-trip distance from Tokyo — close enough to be easy, far enough to feel completely away.</p>
+                </div>
+
+                <div className="rounded-xl bg-stone-50 border border-stone-200 p-4 text-xs text-stone-400">
+                  📍 Step-by-step English directions from the nearest station or highway exit are included in your guide pack.
+                </div>
               </div>
             </div>
 
