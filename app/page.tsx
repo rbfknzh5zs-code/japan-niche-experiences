@@ -130,13 +130,16 @@ export default function HomePage() {
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
             {[
-              { stat: '7+ hrs', label: 'Average daily screen time', sub: 'for adults in North America & Europe' },
-              { stat: '30 min', label: 'Average time outdoors', sub: 'per day in the same population' },
-              { stat: '58%', label: 'Report digital burnout', sub: 'and actively seek ways to disconnect' },
+              { num: '7+', unit: 'hrs', label: 'Average daily screen time', sub: 'for adults in North America & Europe' },
+              { num: '30', unit: 'min', label: 'Average time outdoors', sub: 'per day in the same population' },
+              { num: '58', unit: '%', label: 'Report digital burnout', sub: 'and actively seek ways to disconnect' },
             ].map((item) => (
-              <div key={item.stat} className="rounded-2xl bg-zinc-900 border border-zinc-800 p-8">
-                <p className="font-display text-5xl font-light text-forest-400">{item.stat}</p>
-                <p className="mt-2 font-medium text-zinc-100">{item.label}</p>
+              <div key={item.num} className="rounded-2xl bg-zinc-900 border border-zinc-800 p-8">
+                <div className="inline-flex items-baseline gap-1.5 mb-3">
+                  <span className="font-sans text-6xl font-light text-forest-400 leading-none">{item.num}</span>
+                  <span className="font-sans text-2xl font-light text-forest-400 leading-none">{item.unit}</span>
+                </div>
+                <p className="font-medium text-zinc-100">{item.label}</p>
                 <p className="mt-1 text-sm text-zinc-500">{item.sub}</p>
               </div>
             ))}
@@ -282,28 +285,139 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Getting There */}
+            <div>
+              <h3 className="font-display text-2xl font-light text-white mb-2">Getting There</h3>
+              <p className="text-zinc-500 text-sm mb-6">From Japan's international airports to Nasu Kogen, Tochigi</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                {/* NRT */}
+                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
+                  <div className="flex items-start gap-3 mb-5">
+                    <span className="text-xs font-bold tracking-widest text-forest-400 bg-forest-400/10 border border-forest-400/20 rounded px-2 py-1 mt-0.5">NRT</span>
+                    <div>
+                      <p className="font-semibold text-zinc-100">Narita International Airport</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">Most international long-haul flights</p>
+                    </div>
+                  </div>
+                  <div className="mb-5">
+                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">🚄 By Train</p>
+                    <div className="relative pl-5">
+                      <div className="absolute left-[7px] top-4 bottom-4 w-px bg-zinc-700" />
+                      {[
+                        { dot: '✈', label: 'Narita Airport', sub: null },
+                        { dot: '→', label: "Narita Express (N'EX)", sub: '~60 min · ¥3,000' },
+                        { dot: '🔄', label: 'Tokyo Station', sub: 'Transfer to Shinkansen' },
+                        { dot: '→', label: 'Tohoku Shinkansen (Yamabiko)', sub: '~75 min · ¥5,000' },
+                        { dot: '🚉', label: 'Nasu-Shiobara Station', sub: 'Transfer to taxi' },
+                        { dot: '→', label: 'Taxi', sub: '~30 min · ¥3,000–4,000' },
+                        { dot: '⛺', label: 'Nasu Highland Glamping', sub: null },
+                      ].map((step, i) => (
+                        <div key={i} className="relative flex items-start gap-3 mb-2.5">
+                          <span className="absolute -left-5 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-600 flex items-center justify-center text-[8px] mt-0.5 flex-shrink-0">{step.dot}</span>
+                          <div>
+                            <p className={`text-xs font-medium ${i === 6 ? 'text-forest-400' : 'text-zinc-300'}`}>{step.label}</p>
+                            {step.sub && <p className="text-[11px] text-zinc-600">{step.sub}</p>}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-3 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                      <span className="text-xs text-zinc-400">Total journey</span>
+                      <span className="text-sm font-semibold text-white">~2.5–3 hrs</span>
+                    </div>
+                  </div>
+                  <div className="border-t border-zinc-800 pt-4">
+                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">🚗 By Rental Car</p>
+                    <p className="text-xs text-zinc-500">Tohoku Expressway → Nasu IC → ~7 min to site</p>
+                    <div className="mt-2 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                      <span className="text-xs text-zinc-400">Total journey</span>
+                      <span className="text-sm font-semibold text-white">~2.5–3 hrs</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* HND */}
+                <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6">
+                  <div className="flex items-start gap-3 mb-5">
+                    <span className="text-xs font-bold tracking-widest text-forest-400 bg-forest-400/10 border border-forest-400/20 rounded px-2 py-1 mt-0.5">HND</span>
+                    <div>
+                      <p className="font-semibold text-zinc-100">Haneda Airport</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">Closer to central Tokyo — faster overall</p>
+                    </div>
+                  </div>
+                  <div className="mb-5">
+                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">🚄 By Train</p>
+                    <div className="relative pl-5">
+                      <div className="absolute left-[7px] top-4 bottom-4 w-px bg-zinc-700" />
+                      {[
+                        { dot: '✈', label: 'Haneda Airport', sub: null },
+                        { dot: '→', label: 'Keikyu Line', sub: '~25 min · ¥600' },
+                        { dot: '🔄', label: 'Shinagawa Station', sub: 'Transfer to Shinkansen' },
+                        { dot: '→', label: 'Tohoku Shinkansen (Yamabiko)', sub: '~80 min · ¥5,500' },
+                        { dot: '🚉', label: 'Nasu-Shiobara Station', sub: 'Transfer to taxi' },
+                        { dot: '→', label: 'Taxi', sub: '~30 min · ¥3,000–4,000' },
+                        { dot: '⛺', label: 'Nasu Highland Glamping', sub: null },
+                      ].map((step, i) => (
+                        <div key={i} className="relative flex items-start gap-3 mb-2.5">
+                          <span className="absolute -left-5 w-3.5 h-3.5 rounded-full bg-zinc-800 border border-zinc-600 flex items-center justify-center text-[8px] mt-0.5 flex-shrink-0">{step.dot}</span>
+                          <div>
+                            <p className={`text-xs font-medium ${i === 6 ? 'text-forest-400' : 'text-zinc-300'}`}>{step.label}</p>
+                            {step.sub && <p className="text-[11px] text-zinc-600">{step.sub}</p>}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-3 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                      <span className="text-xs text-zinc-400">Total journey</span>
+                      <span className="text-sm font-semibold text-white">~2–2.5 hrs</span>
+                    </div>
+                  </div>
+                  <div className="border-t border-zinc-800 pt-4">
+                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">🚗 By Rental Car</p>
+                    <p className="text-xs text-zinc-500">Tohoku Expressway → Nasu IC → ~7 min to site</p>
+                    <div className="mt-2 rounded-lg bg-zinc-800/60 px-3 py-2 flex items-center justify-between">
+                      <span className="text-xs text-zinc-400">Total journey</span>
+                      <span className="text-sm font-semibold text-white">~2.5–3 hrs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Context for international travelers */}
+              <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 mb-4">
+                <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">🌍 For context</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-zinc-500">
+                  <p>🇬🇧 London → Cotswolds: ~2 hrs</p>
+                  <p>🇺🇸 NYC → Philadelphia: ~1.5 hrs</p>
+                  <p>🇦🇺 Sydney → Hunter Valley: ~2.5 hrs</p>
+                </div>
+                <p className="text-xs text-zinc-600 mt-2">Nasu Kogen is a comfortable day-trip distance from Tokyo — close enough to be easy, far enough to feel completely away.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* ── How It Works ── */}
-      <section id="how-it-works" className="bg-zinc-900 py-14 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 mb-8">
-            <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase">Process</p>
+      <section id="how-it-works" className="bg-zinc-900 py-20 px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-6 mb-10">
+            <p className="text-sm font-semibold tracking-[0.3em] text-forest-400 uppercase shrink-0">Process</p>
             <span className="hidden sm:inline text-zinc-700">—</span>
-            <h2 className="font-display text-2xl font-light text-white">How It Works</h2>
+            <h2 className="font-display text-4xl font-light text-white">How It Works</h2>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 rounded-xl overflow-hidden">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 rounded-2xl overflow-hidden mb-8">
             {STEPS.map((step) => (
-              <div key={step.num} className="bg-zinc-900 px-6 py-6">
-                <p className="text-xs text-forest-400/60 tracking-widest mb-3">{step.num}</p>
-                <h3 className="font-display text-sm font-medium text-zinc-100 mb-2 leading-snug">{step.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{step.body}</p>
+              <div key={step.num} className="bg-zinc-900 px-7 py-8">
+                <p className="text-sm text-forest-400/60 tracking-widest mb-4">{step.num}</p>
+                <h3 className="font-display text-lg font-medium text-zinc-100 mb-3 leading-snug">{step.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{step.body}</p>
               </div>
             ))}
           </div>
-          <div className="mt-8">
+          <div>
             <Link href="/contact" className="btn-primary">
               Request your dates
             </Link>
