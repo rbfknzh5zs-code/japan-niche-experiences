@@ -56,7 +56,7 @@ export default function DigitalDetoxJapanPage() {
             What a Digital Detox Japan Experience Looks Like
           </h2>
           <p className="text-stone-600 leading-relaxed mb-4">
-            Our Digital Detox Starter is a one-night glamping experience designed for 1–4 guests. You arrive in the afternoon, settle into comfortable accommodation, and spend the evening around a BBQ. The morning brings forest air, birds, and the kind of stillness that city life rarely provides.
+            Our Digital Detox Starter is a one-night glamping experience designed for 1–8 guests. You arrive in the afternoon, settle into comfortable accommodation, and spend the evening around a BBQ. The morning brings forest air, birds, and the kind of stillness that city life rarely provides.
           </p>
           <ul className="space-y-3 mb-8">
             {[

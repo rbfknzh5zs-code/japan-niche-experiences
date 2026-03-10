@@ -6,7 +6,7 @@ import JsonLd from '@/components/JsonLd'
 export const metadata: Metadata = {
   title: 'Digital Detox Starter Package — 1-Night Glamping in Japan',
   description:
-    'The Digital Detox Starter: 1-night glamping for 1–4 guests in Japan\'s wilderness. Includes BBQ plan, English guide PDF, onsen map, directions & digital detox mini guide. From ¥15,000/group.',
+    'The Digital Detox Starter: 1-night glamping for 1–8 guests in Japan\'s wilderness. Includes BBQ plan, English guide PDF, onsen map, directions & digital detox mini guide. From ¥15,000/group.',
   alternates: { canonical: '/packages/digital-detox-starter' },
   openGraph: {
     title: 'Digital Detox Starter Package — 1-Night Glamping in Japan',
@@ -61,7 +61,7 @@ export default function DigitalDetoxStarterPage() {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'Digital Detox Starter',
-    description: '1-night glamping digital detox experience in Japan for 1–4 guests. Includes BBQ plan, English guide PDF, onsen area map, directions guide, and digital detox mini guide.',
+    description: '1-night glamping digital detox experience in Japan for 1–8 guests. Includes BBQ plan, English guide PDF, onsen area map, directions guide, and digital detox mini guide.',
     brand: { '@type': 'Brand', name: 'Digital Detox Japan' },
     url: `${SITE_URL}/packages/digital-detox-starter`,
     offers: {
@@ -139,7 +139,7 @@ export default function DigitalDetoxStarterPage() {
                 <h2 className="font-display text-3xl font-light text-stone-900 mb-6">How It Works</h2>
                 <ol className="space-y-6">
                   {[
-                    { step: '01', title: 'Submit a reservation request', body: 'Fill in the form with your preferred check-in date and group size (1–4 guests). No payment at this stage.' },
+                    { step: '01', title: 'Submit a reservation request', body: 'Fill in the form with your preferred check-in date and group size (1–8 guests). No payment at this stage.' },
                     { step: '02', title: 'We confirm availability', body: 'Within 48 hours (JST), we confirm availability and send you the next steps, including payment details.' },
                     { step: '03', title: 'You receive your complete pack', body: 'Once confirmed, you receive your English guide PDF, onsen map, directions, BBQ plan, and detox mini guide.' },
                     { step: '04', title: 'Arrive & unplug', body: "Show up. Everything is ready. Put your phone away — or don't. We encourage, never enforce." },
@@ -281,14 +281,14 @@ export default function DigitalDetoxStarterPage() {
                   <div className="rounded-lg bg-forest-400/10 border border-forest-400/30 px-4 py-3 flex items-center justify-between gap-3">
                     <div>
                       <p className="text-xs text-forest-500 uppercase tracking-widest mb-0.5">Our fee</p>
-                      <p className="text-xl font-semibold text-forest-500">$100</p>
+                      <p className="text-xl font-semibold text-forest-500">$20</p>
                     </div>
                     <p className="text-xs text-forest-400 text-right shrink-0">per<br/>booking</p>
                   </div>
                 </div>
 
                 <div className="space-y-2 mb-8 text-sm text-stone-600">
-                  <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> 1–4 guests</p>
+                  <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> 1–8 guests</p>
                   <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> 1 night</p>
                   <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> All English</p>
                   <p className="flex items-center gap-2"><span className="text-forest-500">✓</span> No camping experience needed</p>

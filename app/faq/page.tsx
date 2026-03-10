@@ -38,7 +38,7 @@ const FAQS: FAQItem[] = [
   },
   {
     q: 'How many people is the package for?',
-    a: 'The Digital Detox Starter is priced per group of 1–4 guests. Couples, solo travelers, and small friend groups all work well. If you\'re a larger group, contact us and we\'ll explore options.',
+    a: 'The Digital Detox Starter is priced per group of 1–8 guests. Couples, solo travelers, and small friend groups all work well. If you\'re a larger group, contact us and we\'ll explore options.',
   },
   {
     q: 'How far in advance should I book?',

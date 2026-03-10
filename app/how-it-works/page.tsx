@@ -13,7 +13,7 @@ const STEPS = [
   {
     num: '01',
     title: 'Choose your package',
-    desc: 'Browse our Digital Detox Starter — currently our flagship 1-night glamping experience for 1–4 guests. Read what\'s included, what\'s not, and our pricing.',
+    desc: 'Browse our Digital Detox Starter — currently our flagship 1-night glamping experience for 1–8 guests. Read what\'s included, what\'s not, and our pricing.',
     cta: { label: 'See the package', href: '/packages/digital-detox-starter' },
   },
   {

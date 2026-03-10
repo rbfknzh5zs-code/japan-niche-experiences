@@ -86,12 +86,12 @@ export default function HomePage() {
     '@type': 'Product',
     name: 'Digital Detox Starter',
     description:
-      'A 1-night glamping digital detox package in Japan for 1–4 guests. Includes BBQ plan, English guide PDF, onsen map, directions, and digital detox mini guide.',
+      'A 1-night glamping digital detox package in Japan for 1–8 guests. Includes BBQ plan, English guide PDF, onsen map, directions, and digital detox mini guide.',
     brand: { '@type': 'Brand', name: 'Digital Detox Japan' },
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: 100, priceCurrency: 'USD' },
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: 20, priceCurrency: 'USD' },
       availability: 'https://schema.org/InStock',
       url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitaldetoxjapan.com'}/packages/digital-detox-starter`,
     },
@@ -269,7 +269,7 @@ export default function HomePage() {
                     </div>
                     <div className="rounded-lg bg-forest-400/10 border border-forest-400/30 px-4 py-3">
                       <p className="text-xs text-forest-500 uppercase tracking-widest mb-1">Our fee</p>
-                      <p className="text-xl font-semibold text-forest-500">$100</p>
+                      <p className="text-xl font-semibold text-forest-500">$20</p>
                       <p className="text-xs text-forest-400 mt-0.5">per booking</p>
                     </div>
                   </div>

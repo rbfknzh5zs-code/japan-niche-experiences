@@ -8,7 +8,7 @@ import ShareButtons from '@/components/ShareButtons'
 export const metadata: Metadata = {
   title: 'Nasu Highland Glamping — Private Onsen & Barrel Sauna in Every Cabin',
   description:
-    'Glamping B&V Nasu Kogen: every dome cabin includes a private natural hot spring AND a private Finnish barrel sauna. Campfire, BBQ, free bar. Tochigi Prefecture. $100 coordination fee.',
+    'Glamping B&V Nasu Kogen: every dome cabin includes a private natural hot spring AND a private Finnish barrel sauna. Campfire, BBQ, free bar. Tochigi Prefecture. $20 coordination fee.',
   alternates: { canonical: '/packages/nasu-highland-glamping' },
   openGraph: {
     title: 'Nasu Highland Glamping — Private Onsen & Barrel Sauna in Every Cabin',
@@ -408,7 +408,7 @@ export default function NasuHighlandGlampingPage() {
                     <span className="text-base leading-none mt-0.5">📋</span>
                     <div>
                       <p className="font-medium text-zinc-200">Coordination fee</p>
-                      <p className="text-2xl font-semibold text-forest-400 my-1">$100</p>
+                      <p className="text-2xl font-semibold text-forest-400 my-1">$20</p>
                       <p className="text-xs text-zinc-500">English guide · Japanese comms · support</p>
                     </div>
                   </div>
