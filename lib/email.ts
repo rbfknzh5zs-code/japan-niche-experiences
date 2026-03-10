@@ -2,6 +2,7 @@ import { Resend } from 'resend'
 
 export interface ContactFormData {
   desiredCheckInDate: string
+  desiredCheckOutDate: string
   guests: string
   name: string
   email: string
@@ -36,11 +37,13 @@ export async function sendContactEmail(data: ContactFormData) {
   const safeWhatsApp = data.whatsapp ? escapeHtml(data.whatsapp) : null
   const safeCountry = data.country ? escapeHtml(data.country) : null
   const safeCheckInDate = escapeHtml(data.desiredCheckInDate)
+  const safeCheckOutDate = escapeHtml(data.desiredCheckOutDate)
   const safeGuests = escapeHtml(data.guests)
   const safeMessage = data.message ? escapeHtml(data.message).replace(/\n/g, '<br>') : null
   const safeAiSummary = data.aiSummary ? escapeHtml(data.aiSummary).replace(/\n/g, '<br>') : null
   const subjectName = sanitizeHeaderValue(data.name)
   const subjectCheckInDate = sanitizeHeaderValue(data.desiredCheckInDate)
+  const subjectCheckOutDate = sanitizeHeaderValue(data.desiredCheckOutDate)
   const subjectGuests = sanitizeHeaderValue(data.guests)
 
   const html = `
@@ -67,6 +70,7 @@ export async function sendContactEmail(data: ContactFormData) {
     ${safeWhatsApp ? `<tr><td>WhatsApp</td><td>${safeWhatsApp}</td></tr>` : ''}
     ${safeCountry ? `<tr><td>Country</td><td>${safeCountry}</td></tr>` : ''}
     <tr><td>Check-in Date</td><td>${safeCheckInDate}</td></tr>
+    <tr><td>Check-out Date</td><td>${safeCheckOutDate}</td></tr>
     <tr><td>Guests</td><td>${safeGuests}</td></tr>
   </table>
 
@@ -97,7 +101,7 @@ export async function sendContactEmail(data: ContactFormData) {
     from: fromAddress,
     to: ownerEmail,
     replyTo: data.email,
-    subject: `New Reservation Request — ${subjectName} (${subjectCheckInDate}, ${subjectGuests} guest${parseInt(data.guests, 10) > 1 ? 's' : ''})`,
+    subject: `New Reservation Request — ${subjectName} (${subjectCheckInDate} → ${subjectCheckOutDate}, ${subjectGuests} guest${parseInt(data.guests, 10) > 1 ? 's' : ''})`,
     html,
   })
 

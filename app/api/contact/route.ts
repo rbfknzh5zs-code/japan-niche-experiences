@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as Partial<ContactFormData>
 
     // ── Validate required fields ──────────────────────────────────────────────
-    const required: (keyof ContactFormData)[] = ['desiredCheckInDate', 'guests', 'name', 'email']
+    const required: (keyof ContactFormData)[] = ['desiredCheckInDate', 'desiredCheckOutDate', 'guests', 'name', 'email']
     for (const field of required) {
       if (!body[field] || String(body[field]).trim() === '') {
         return NextResponse.json(
@@ -30,6 +30,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Guests must be between 1 and 8' }, { status: 400 })
     }
 
+    // Check-out must be after check-in
+    const checkInDate = new Date(String(body.desiredCheckInDate))
+    const checkOutDate = new Date(String(body.desiredCheckOutDate))
+    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+      return NextResponse.json({ error: 'Invalid check-in or check-out date' }, { status: 400 })
+    }
+    if (checkOutDate <= checkInDate) {
+      return NextResponse.json({ error: 'Check-out date must be after check-in date' }, { status: 400 })
+    }
+
+    const normalizedMessage = body.message?.trim() || null
+    const messageForDb = [normalizedMessage, `Check-out date: ${String(body.desiredCheckOutDate).trim()}`]
+      .filter(Boolean)
+      .join('\n')
+
     // ── Save to database ──────────────────────────────────────────────────────
     try {
       const db = getSupabaseClient()
@@ -42,7 +57,7 @@ export async function POST(req: NextRequest) {
           email: body.email!.trim(),
           whatsapp: body.whatsapp?.trim() || null,
           country: body.country?.trim() || null,
-          message: body.message?.trim() || null,
+          message: messageForDb || null,
         })
       if (dbError) {
         console.error('[contact/route] DB insert failed:', dbError.message)
@@ -55,6 +70,7 @@ export async function POST(req: NextRequest) {
     // ── Send email ────────────────────────────────────────────────────────────
     const aiSummary = await generateReservationSummary({
       desiredCheckInDate: body.desiredCheckInDate!,
+      desiredCheckOutDate: body.desiredCheckOutDate!,
       guests: String(guests),
       name: body.name!.trim(),
       email: body.email!.trim(),
@@ -65,6 +81,7 @@ export async function POST(req: NextRequest) {
 
     await sendContactEmail({
       desiredCheckInDate: body.desiredCheckInDate!,
+      desiredCheckOutDate: body.desiredCheckOutDate!,
       guests: String(guests),
       name: body.name!.trim(),
       email: body.email!.trim(),

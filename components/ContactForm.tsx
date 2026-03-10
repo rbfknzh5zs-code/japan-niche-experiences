@@ -5,9 +5,77 @@ import Link from 'next/link'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
+const COUNTRY_OPTIONS = [
+  'Argentina',
+  'Australia',
+  'Austria',
+  'Belgium',
+  'Brazil',
+  'Bulgaria',
+  'Canada',
+  'Chile',
+  'China',
+  'Colombia',
+  'Croatia',
+  'Czech Republic',
+  'Denmark',
+  'Egypt',
+  'Estonia',
+  'Finland',
+  'France',
+  'Germany',
+  'Greece',
+  'Hong Kong',
+  'Hungary',
+  'Iceland',
+  'India',
+  'Indonesia',
+  'Ireland',
+  'Israel',
+  'Italy',
+  'Japan',
+  'Kenya',
+  'Latvia',
+  'Lithuania',
+  'Luxembourg',
+  'Malaysia',
+  'Mexico',
+  'Morocco',
+  'Netherlands',
+  'New Zealand',
+  'Norway',
+  'Pakistan',
+  'Peru',
+  'Philippines',
+  'Poland',
+  'Portugal',
+  'Qatar',
+  'Romania',
+  'Russia',
+  'Saudi Arabia',
+  'Singapore',
+  'Slovakia',
+  'Slovenia',
+  'South Africa',
+  'South Korea',
+  'Spain',
+  'Sri Lanka',
+  'Sweden',
+  'Switzerland',
+  'Taiwan',
+  'Thailand',
+  'Turkey',
+  'Ukraine',
+  'United Arab Emirates',
+  'United Kingdom',
+  'United States',
+  'Vietnam',
+]
+
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [checkInDate, setCheckInDate] = useState('')
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -17,12 +85,19 @@ export default function ContactForm() {
     const form = e.currentTarget
     const data = {
       desiredCheckInDate: (form.elements.namedItem('desiredCheckInDate') as HTMLInputElement).value,
+      desiredCheckOutDate: (form.elements.namedItem('desiredCheckOutDate') as HTMLInputElement).value,
       guests:             (form.elements.namedItem('guests') as HTMLSelectElement).value,
       name:               (form.elements.namedItem('name') as HTMLInputElement).value,
       email:              (form.elements.namedItem('email') as HTMLInputElement).value,
       whatsapp:           (form.elements.namedItem('whatsapp') as HTMLInputElement).value,
-      country:            (form.elements.namedItem('country') as HTMLInputElement).value,
+      country:            (form.elements.namedItem('country') as HTMLSelectElement).value,
       message:            (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    }
+
+    if (new Date(data.desiredCheckOutDate) <= new Date(data.desiredCheckInDate)) {
+      setStatus('error')
+      setErrorMsg('Check-out date must be after check-in date.')
+      return
     }
 
     try {
@@ -73,11 +148,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
-      {/* Row 1: date + guests */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* Row 1: check-in + check-out + guests */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
           <label htmlFor="desiredCheckInDate" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
-            Desired Check-in Date <span className="text-red-400">*</span>
+            Check-in Date <span className="text-red-400">*</span>
           </label>
           <input
             type="date"
@@ -85,6 +160,22 @@ export default function ContactForm() {
             name="desiredCheckInDate"
             required
             lang="en-US"
+            className="input-base"
+            onChange={(e) => setCheckInDate(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="desiredCheckOutDate" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            Check-out Date <span className="text-red-400">*</span>
+          </label>
+          <input
+            type="date"
+            id="desiredCheckOutDate"
+            name="desiredCheckOutDate"
+            required
+            lang="en-US"
+            min={checkInDate || undefined}
             className="input-base"
           />
         </div>
@@ -157,13 +248,14 @@ export default function ContactForm() {
           <label htmlFor="country" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
             Country <span className="text-zinc-600 normal-case font-normal tracking-normal">(optional)</span>
           </label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            placeholder="United States"
-            className="input-base"
-          />
+          <select id="country" name="country" className="input-base">
+            <option value="">Select country…</option>
+            {COUNTRY_OPTIONS.map((country) => (
+              <option key={country} value={country}>
+                {country}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
