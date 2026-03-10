@@ -135,7 +135,7 @@ export default function NasuHighlandGlampingPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden col-span-2 row-span-1 lg:col-span-2 lg:row-span-2">
               <Image
-                src="/images/bv.jpg"
+                src="/images/nasu-dome-forest.png"
                 alt="Glamping B&V Nasu Kogen — dome cabins"
                 fill
                 className="object-cover"
@@ -420,7 +420,7 @@ export default function NasuHighlandGlampingPage() {
                   <p className="flex items-center gap-2"><span>🪣</span> Private barrel sauna in every cabin</p>
                   <p className="flex items-center gap-2"><span>🔥</span> Private campfire in every cabin</p>
                   <p className="flex items-center gap-2"><span className="text-forest-400">✓</span> Up to 8 guests</p>
-                  <p className="flex items-center gap-2"><span className="text-forest-400">✓</span> Dog-friendly option available</p>
+                  <p className="flex items-center gap-2"><span>🐾</span> <span className="text-earth-300">Pets welcome — dog-friendly dome</span></p>
                 </div>
 
                 <Link href="/contact" className="btn-primary w-full text-center block mb-4">

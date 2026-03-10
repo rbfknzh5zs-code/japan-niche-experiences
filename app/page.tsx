@@ -218,7 +218,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-800 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
               <div className="p-12 flex flex-col justify-end min-h-64 relative overflow-hidden bg-black">
                 <Image
-                  src="/images/bv.jpg"
+                  src="/images/nasu-dome-forest.png"
                   alt="Glamping B&V Nasu Kogen — dome cabin exterior"
                   fill
                   className="object-cover object-center opacity-50"
@@ -256,7 +256,10 @@ export default function HomePage() {
                     ))}
                   </ul>
                   <p className="text-sm text-zinc-500">
-                    5 dome types. Up to 8 guests. Dog-friendly option available.
+                    5 dome types. Up to 8 guests.
+                  </p>
+                  <p className="text-sm text-earth-300 flex items-center gap-1.5 mt-2">
+                    🐾 <span>Pets welcome — dog-friendly dome available</span>
                   </p>
                 </div>
 
