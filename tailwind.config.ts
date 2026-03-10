@@ -9,57 +9,58 @@ const config: Config = {
     extend: {
       colors: {
         forest: {
-          // Claude Code warm amber / copper palette
-          50:  '#fdf6ee',
-          100: '#f9e5cc',
-          200: '#f2c89a',
-          300: '#e7a362',
-          400: '#d47830',   // main accent — warm amber
-          500: '#b05e18',
-          600: '#864410',   // primary CTA — deep terracotta
-          700: '#60300a',
-          800: '#3e1e06',
-          900: '#251203',
+          // Natural forest green palette
+          50:  '#f1f7ee',
+          100: '#dcefd4',
+          200: '#b8dca8',
+          300: '#8ac47c',
+          400: '#5aaf48',   // main accent — natural green
+          500: '#3d8a2a',
+          600: '#2a6b1a',   // primary CTA — deep forest green
+          700: '#1d4d12',
+          800: '#12330a',
+          900: '#0a1e06',
         },
         earth: {
-          50:  '#fdf7f0',
-          100: '#f7e8d4',
-          200: '#ecd0a8',
-          300: '#dbb07a',
-          400: '#c78e50',
-          500: '#a56e34',
-          600: '#7e5122',
-          700: '#5c3a16',
-          800: '#3b250c',
-          900: '#221506',
+          // Moss / sage green
+          50:  '#f3f7f1',
+          100: '#e0ecda',
+          200: '#c1d9b4',
+          300: '#96be88',
+          400: '#6ba05c',
+          500: '#4c803e',
+          600: '#38612d',
+          700: '#284620',
+          800: '#1a2e15',
+          900: '#0f1c0c',
         },
         stone: {
-          // warm stone — slightly amber-tinted
-          50:  '#faf8f5',
-          100: '#f2ede6',
-          200: '#e5ddd2',
-          300: '#cfc5b5',
-          400: '#b0a490',
-          500: '#8e8270',
-          600: '#6e6253',
-          700: '#514939',
-          800: '#342f24',
-          900: '#1d1a14',
+          // Cool stone — slightly green-tinted
+          50:  '#f6f8f5',
+          100: '#edf1ea',
+          200: '#dae3d5',
+          300: '#bfcfb8',
+          400: '#9db494',
+          500: '#7b9672',
+          600: '#5e7658',
+          700: '#455740',
+          800: '#2d3a2a',
+          900: '#1a2218',
         },
         zinc: {
-          // inverted scale: low = dark (text), high = light (backgrounds)
-          // warm beige / washi-paper palette
-          50:  '#0e0c09',
-          100: '#1c1a14',   // main text on light bg
-          200: '#2c2920',
-          300: '#40392e',
-          400: '#5c5448',
-          500: '#7c7268',
-          600: '#9c9288',
-          700: '#bcb4a8',
-          800: '#d8d0c4',   // card bg, borders
-          900: '#ebe6dc',   // alternating section bg
-          950: '#f5f0e6',   // main page bg (warm cream)
+          // inverted scale: low = dark, high = light backgrounds
+          // cool sage-tinted palette
+          50:  '#0c0f0b',
+          100: '#181e16',   // main text on light bg
+          200: '#262e23',
+          300: '#374033',
+          400: '#505c4a',
+          500: '#6e7a67',
+          600: '#8e9a86',
+          700: '#b0baa8',
+          800: '#cfd8c8',   // card bg, borders
+          900: '#e4ebe0',   // alternating section bg
+          950: '#f0f5ee',   // main page bg (light sage)
         },
       },
       fontFamily: {
