@@ -258,16 +258,6 @@ export default function DigitalDetoxStarterPage() {
                   </div>
                 </div>
 
-                {/* Context for international travelers */}
-                <div className="rounded-xl border border-stone-200 bg-stone-50 p-4 mb-4">
-                  <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">🌍 For context</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-stone-500">
-                    <p>🇬🇧 London → Cotswolds: ~2 hrs</p>
-                    <p>🇺🇸 NYC → Philadelphia: ~1.5 hrs</p>
-                    <p>🇦🇺 Sydney → Hunter Valley: ~2.5 hrs</p>
-                  </div>
-                  <p className="text-xs text-stone-400 mt-2">Nasu Kogen is a comfortable day-trip distance from Tokyo — close enough to be easy, far enough to feel completely away.</p>
-                </div>
 
                 <div className="rounded-xl bg-stone-50 border border-stone-200 p-4 text-xs text-stone-400">
                   📍 Step-by-step English directions from the nearest station or highway exit are included in your guide pack.

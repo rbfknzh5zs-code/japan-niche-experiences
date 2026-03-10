@@ -384,16 +384,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Context for international travelers */}
-              <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 mb-4">
-                <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">🌍 For context</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-zinc-500">
-                  <p>🇬🇧 London → Cotswolds: ~2 hrs</p>
-                  <p>🇺🇸 NYC → Philadelphia: ~1.5 hrs</p>
-                  <p>🇦🇺 Sydney → Hunter Valley: ~2.5 hrs</p>
-                </div>
-                <p className="text-xs text-zinc-600 mt-2">Nasu Kogen is a comfortable day-trip distance from Tokyo — close enough to be easy, far enough to feel completely away.</p>
-              </div>
             </div>
 
           </div>
