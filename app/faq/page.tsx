@@ -81,7 +81,7 @@ export default function FAQPage() {
         tag="FAQ"
         title="Common Questions"
         description={<>Everything you need to know about Digital Detox Japan experiences. Can't find your answer?{' '}<Link href="/contact" className="text-forest-400 underline underline-offset-2 hover:text-forest-300">Contact us directly.</Link></>}
-        bgImage="/images/hero-forest.jpg"
+        bgImage="/images/nasu-sauna.jpg"
         kanji="問"
       />
 

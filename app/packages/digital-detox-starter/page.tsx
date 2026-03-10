@@ -88,7 +88,7 @@ export default function DigitalDetoxStarterPage() {
         description="One night of glamping in Japan's wilderness. BBQ, onsen, an English guide for everything — and nothing to plan. Just arrive, breathe, and let the forest do its work."
         cta={{ label: 'Request your dates', href: '/contact' }}
         kanji="一"
-        bgImage="/images/hero-forest.jpg"
+        bgImage="/images/nasu-sauna.jpg"
       />
 
       {/* Package overview */}

@@ -52,7 +52,7 @@ export default function HowItWorksPage() {
         titleEm="to Japanese Quiet"
         description="We've designed this to be as friction-free as possible. You tell us your dates; we handle the rest in Japanese. You just need to show up."
         kanji="道"
-        bgImage="/images/hero-forest.jpg"
+        bgImage="/images/nasu-sauna.jpg"
         cta={{ label: 'Request your dates', href: '/contact' }}
       />
 

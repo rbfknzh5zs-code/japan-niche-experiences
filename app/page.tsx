@@ -110,7 +110,7 @@ export default function HomePage() {
         description="Trade your notifications for the sound of wind through cedar. We handle every Japanese detail — booking, guide, directions — so you step off the train and straight into stillness."
         cta={{ label: 'Request your dates', href: '/contact' }}
         kanji="禅"
-        bgImage="/images/hero-forest.jpg"
+        bgImage="/images/nasu-sauna.jpg"
       />
 
       {/* ── Manifesto strip ── */}
