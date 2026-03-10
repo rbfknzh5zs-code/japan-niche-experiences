@@ -4,7 +4,7 @@ Marketing website for **Digital Detox Japan** — curated digital detox glamping
 
 **Concept:** Digital fatigue × Japanese quiet
 **Principle:** Encouraged, not enforced.
-**Tech:** Next.js 15 (App Router) · TypeScript · Tailwind CSS · Resend
+**Tech:** Next.js 15 (App Router) · TypeScript · Tailwind CSS · Resend · OpenAI
 
 ---
 
@@ -39,6 +39,13 @@ SITE_OWNER_EMAIL=you@yourdomain.com
 
 # The "from" address (must be from a domain verified in Resend)
 EMAIL_FROM=Digital Detox Japan <noreply@yourdomain.com>
+
+# ── OpenAI (reservation summary) ────────────────────────────────────────────
+# Get your API key at https://platform.openai.com/api-keys
+OPENAI_API_KEY=sk_xxxxxxxxxxxxxxxxxxxx
+
+# Default model for internal reservation summaries
+OPENAI_MODEL=gpt-5.4
 
 # ── Site URL ───────────────────────────────────────────────────────────────
 # Used for canonical URLs, OpenGraph, and sitemap.xml
@@ -91,6 +98,7 @@ components/
 └── JsonLd.tsx       ← JSON-LD structured data helper
 
 lib/
+├── ai.ts            ← OpenAI (GPT-5.4) reservation summary helper
 └── email.ts         ← Resend email sending logic
 
 public/
@@ -146,6 +154,8 @@ public/
    - `RESEND_API_KEY`
    - `SITE_OWNER_EMAIL`
    - `EMAIL_FROM`
+   - `OPENAI_API_KEY`
+   - `OPENAI_MODEL` (recommended: `gpt-5.4`)
    - `NEXT_PUBLIC_SITE_URL` (set to your actual domain)
 4. Deploy — Vercel auto-detects Next.js and sets up the build correctly
 
@@ -172,3 +182,4 @@ User fills form → POST /api/contact → lib/email.ts → Resend API → SITE_O
 
 Validation happens both client-side (HTML5 + React state) and server-side (API route).
 On success, the form shows a confirmation message: *"We'll reply within 48 hours (JST)."*
+If `OPENAI_API_KEY` is set, the contact flow also generates an internal 3-bullet summary using `OPENAI_MODEL` (default: `gpt-5.4`) and includes it in the owner email.

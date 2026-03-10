@@ -70,6 +70,15 @@ const DOME_TYPES = [
 
 export default function NasuHighlandGlampingPage() {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitaldetoxjapan.com'
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://digitaldetoxjapan.com' },
+      { '@type': 'ListItem', position: 2, name: 'Packages', item: 'https://digitaldetoxjapan.com/packages' },
+      { '@type': 'ListItem', position: 3, name: 'Nasu Highland Glamping', item: 'https://digitaldetoxjapan.com/packages/nasu-highland-glamping' },
+    ],
+  }
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -88,7 +97,7 @@ export default function NasuHighlandGlampingPage() {
 
   return (
     <>
-      <JsonLd data={productSchema} />
+      <JsonLd data={[breadcrumbSchema, productSchema]} />
 
       <Hero
         tag="Featured Destination · Nasu Kogen, Tochigi"

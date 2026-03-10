@@ -8,6 +8,20 @@ export interface ContactFormData {
   whatsapp?: string
   country?: string
   message?: string
+  aiSummary?: string
+}
+
+function escapeHtml(input: string) {
+  return input
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+function sanitizeHeaderValue(input: string) {
+  return input.replace(/[\r\n]+/g, ' ').trim()
 }
 
 export async function sendContactEmail(data: ContactFormData) {
@@ -16,6 +30,18 @@ export async function sendContactEmail(data: ContactFormData) {
   const fromAddress = process.env.EMAIL_FROM ?? 'Digital Detox Japan <noreply@digitaldetoxjapan.com>'
 
   if (!ownerEmail) throw new Error('SITE_OWNER_EMAIL is not set')
+
+  const safeName = escapeHtml(data.name)
+  const safeEmail = escapeHtml(data.email)
+  const safeWhatsApp = data.whatsapp ? escapeHtml(data.whatsapp) : null
+  const safeCountry = data.country ? escapeHtml(data.country) : null
+  const safeCheckInDate = escapeHtml(data.desiredCheckInDate)
+  const safeGuests = escapeHtml(data.guests)
+  const safeMessage = data.message ? escapeHtml(data.message).replace(/\n/g, '<br>') : null
+  const safeAiSummary = data.aiSummary ? escapeHtml(data.aiSummary).replace(/\n/g, '<br>') : null
+  const subjectName = sanitizeHeaderValue(data.name)
+  const subjectCheckInDate = sanitizeHeaderValue(data.desiredCheckInDate)
+  const subjectGuests = sanitizeHeaderValue(data.guests)
 
   const html = `
 <!DOCTYPE html>
@@ -36,18 +62,25 @@ export async function sendContactEmail(data: ContactFormData) {
   <p style="color:#736d62;margin-bottom:24px;">A guest has submitted a reservation request via Digital Detox Japan.</p>
 
   <table>
-    <tr><td>Name</td><td>${data.name}</td></tr>
-    <tr><td>Email</td><td>${data.email}</td></tr>
-    ${data.whatsapp ? `<tr><td>WhatsApp</td><td>${data.whatsapp}</td></tr>` : ''}
-    ${data.country ? `<tr><td>Country</td><td>${data.country}</td></tr>` : ''}
-    <tr><td>Check-in Date</td><td>${data.desiredCheckInDate}</td></tr>
-    <tr><td>Guests</td><td>${data.guests}</td></tr>
+    <tr><td>Name</td><td>${safeName}</td></tr>
+    <tr><td>Email</td><td>${safeEmail}</td></tr>
+    ${safeWhatsApp ? `<tr><td>WhatsApp</td><td>${safeWhatsApp}</td></tr>` : ''}
+    ${safeCountry ? `<tr><td>Country</td><td>${safeCountry}</td></tr>` : ''}
+    <tr><td>Check-in Date</td><td>${safeCheckInDate}</td></tr>
+    <tr><td>Guests</td><td>${safeGuests}</td></tr>
   </table>
 
   ${
-    data.message
+    safeMessage
       ? `<p style="color:#736d62;font-size:13px;margin-bottom:8px;">Message</p>
-         <div class="msg">${data.message.replace(/\n/g, '<br>')}</div>`
+         <div class="msg">${safeMessage}</div>`
+      : ''
+  }
+
+  ${
+    safeAiSummary
+      ? `<p style="color:#736d62;font-size:13px;margin:20px 0 8px;">AI Summary (GPT-5.4)</p>
+         <div class="msg">${safeAiSummary}</div>`
       : ''
   }
 
@@ -64,7 +97,7 @@ export async function sendContactEmail(data: ContactFormData) {
     from: fromAddress,
     to: ownerEmail,
     replyTo: data.email,
-    subject: `New Reservation Request — ${data.name} (${data.desiredCheckInDate}, ${data.guests} guest${parseInt(data.guests) > 1 ? 's' : ''})`,
+    subject: `New Reservation Request — ${subjectName} (${subjectCheckInDate}, ${subjectGuests} guest${parseInt(data.guests, 10) > 1 ? 's' : ''})`,
     html,
   })
 

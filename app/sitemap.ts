@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/forest-therapy-japan', priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/japan-wellness-nature-retreat', priority: 0.9, changeFrequency: 'monthly' as const },
     { url: '/packages/digital-detox-starter', priority: 0.85, changeFrequency: 'monthly' as const },
+    { url: '/packages/nasu-highland-glamping', priority: 0.85, changeFrequency: 'monthly' as const },
     { url: '/how-it-works', priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/faq', priority: 0.7, changeFrequency: 'monthly' as const },
     { url: '/contact', priority: 0.8, changeFrequency: 'yearly' as const },

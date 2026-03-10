@@ -1,21 +1,36 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Unplug in Japan — How to Disconnect Without Planning Stress',
+  title: 'Unplug in Japan 2026 — We Handle Every Japanese Detail for You',
   description:
-    "Want to unplug in Japan but don't know where to start? We prepare everything in English — glamping, onsen access, BBQ, and forest therapy — so you can just arrive and breathe.",
+    "We book the glamping, handle all Japanese communication, and send you an English guide. You just show up and breathe. No Japanese required. Request dates — no payment upfront.",
   alternates: { canonical: '/unplug-in-japan' },
   openGraph: {
-    title: 'Unplug in Japan — How to Disconnect Without Planning Stress',
+    title: 'Unplug in Japan 2026 — We Handle Every Japanese Detail for You',
     description: 'We handle all Japanese logistics so you can unplug in Japan without the stress. Glamping, onsen & forest bathing — all in English.',
   },
 }
 
 export default function UnplugInJapanPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Unplug in Japan 2026 — We Handle Every Japanese Detail for You',
+    description: "Want to unplug in Japan but don't know where to start? We prepare everything in English — glamping, onsen access, BBQ, and forest therapy — so you can just arrive and breathe.",
+    url: 'https://digitaldetoxjapan.com/unplug-in-japan',
+    datePublished: '2024-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    author: { '@type': 'Organization', name: 'Digital Detox Japan', url: 'https://digitaldetoxjapan.com' },
+    publisher: { '@type': 'Organization', name: 'Digital Detox Japan' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://digitaldetoxjapan.com/unplug-in-japan' },
+  }
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       <Hero
         tag="Unplug in Japan"
         title="Unplug in Japan —"

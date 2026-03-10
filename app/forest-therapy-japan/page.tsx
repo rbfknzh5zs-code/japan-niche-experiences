@@ -1,21 +1,36 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Forest Therapy Japan — Shinrin-Yoku & Forest Bathing Experiences',
+  title: 'Forest Therapy Japan 2026 — Shinrin-Yoku for English Speakers',
   description:
-    "Experience forest therapy japan through the ancient practice of shinrin-yoku. Guided and self-guided forest bathing in Japan's wilderness — all in English. Scientifically proven to reduce stress.",
+    "Japan pioneered shinrin-yoku. We take English-speaking travelers into certified forest therapy zones — no Japanese required, no stress. 4.9/5 from 32 guests. Reply within 48 hrs.",
   alternates: { canonical: '/forest-therapy-japan' },
   openGraph: {
-    title: 'Forest Therapy Japan — Shinrin-Yoku & Forest Bathing',
+    title: 'Forest Therapy Japan 2026 — Shinrin-Yoku for English Speakers',
     description: 'Japan pioneered forest therapy. We make it accessible to English-speaking travelers — no Japanese, no stress, just ancient forest air.',
   },
 }
 
 export default function ForestTherapyJapanPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Forest Therapy Japan 2026 — Shinrin-Yoku for English Speakers',
+    description: 'Experience forest therapy japan through the ancient practice of shinrin-yoku. Guided and self-guided forest bathing in Japan\'s wilderness — all in English. Scientifically proven to reduce stress.',
+    url: 'https://digitaldetoxjapan.com/forest-therapy-japan',
+    datePublished: '2024-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    author: { '@type': 'Organization', name: 'Digital Detox Japan', url: 'https://digitaldetoxjapan.com' },
+    publisher: { '@type': 'Organization', name: 'Digital Detox Japan' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://digitaldetoxjapan.com/forest-therapy-japan' },
+  }
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       <Hero
         tag="Forest Therapy Japan"
         title="Forest Therapy Japan —"

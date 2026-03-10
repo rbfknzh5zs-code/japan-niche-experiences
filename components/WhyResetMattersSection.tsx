@@ -60,38 +60,38 @@ const SOURCES = [
 
 export default function WhyResetMattersSection() {
   return (
-    <section className="bg-zinc-900 px-6 py-12">
-      <div className="mx-auto max-w-5xl">
+    <section className="bg-zinc-900 px-6 py-20">
+      <div className="mx-auto max-w-6xl">
 
         {/* Header row */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-6 mb-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest-400 shrink-0">
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-6 mb-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-forest-400 shrink-0">
             Wellness Research
           </p>
           <span className="hidden sm:inline text-zinc-700">—</span>
-          <h2 className="font-display text-2xl font-light text-white">Why This Reset Matters</h2>
+          <h2 className="font-display text-4xl font-light text-white">Why This Reset Matters</h2>
         </div>
 
         {/* 4-column evidence grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 rounded-xl overflow-hidden mb-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 rounded-2xl overflow-hidden mb-8">
           {EVIDENCE_CARDS.map((card) => {
             const paths = Array.isArray(card.iconPath) ? card.iconPath : [card.iconPath]
             return (
-              <div key={card.id} className="bg-zinc-900 px-5 py-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <svg className="h-4 w-4 text-forest-400 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+              <div key={card.id} className="bg-zinc-900 px-7 py-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="h-6 w-6 text-forest-400 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                     {paths.map((d, i) => <path key={i} strokeLinecap="round" strokeLinejoin="round" d={d} />)}
                   </svg>
-                  <h3 className="font-display text-sm font-medium text-zinc-100">{card.title}</h3>
+                  <h3 className="font-display text-lg font-medium text-zinc-100">{card.title}</h3>
                 </div>
-                <p className="text-xs leading-relaxed text-zinc-500">{card.body}</p>
+                <p className="text-sm leading-relaxed text-zinc-400">{card.body}</p>
               </div>
             )
           })}
         </div>
 
         {/* Footer: disclaimer + sources */}
-        <div className="flex flex-wrap items-baseline gap-x-1 gap-y-1 text-xs text-zinc-600">
+        <div className="flex flex-wrap items-baseline gap-x-1 gap-y-1 text-sm text-zinc-600">
           <span>Research shows associations, not guaranteed outcomes.</span>
           <span className="text-zinc-800 mx-1">·</span>
           <span className="font-medium text-zinc-600">Sources:</span>

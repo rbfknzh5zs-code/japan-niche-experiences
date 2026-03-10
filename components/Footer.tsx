@@ -1,10 +1,12 @@
 import Link from 'next/link'
 
 const PACKAGES = [
+  { label: 'Nasu Highland Glamping', href: '/packages/nasu-highland-glamping' },
   { label: 'Digital Detox Starter', href: '/packages/digital-detox-starter' },
 ]
 
 const PAGES = [
+  { label: 'Blog', href: '/blog' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -26,7 +28,7 @@ const LANDING = [
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-300">
+    <footer className="bg-black text-zinc-400 border-t border-zinc-900">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:gap-16">
           {/* Brand */}
@@ -39,36 +41,36 @@ export default function Footer() {
                 <p className="text-sm font-semibold tracking-widest text-white uppercase leading-none">
                   Digital Detox
                 </p>
-                <p className="text-xs tracking-[0.3em] text-stone-500 uppercase leading-tight">
+                <p className="text-xs tracking-[0.3em] text-zinc-600 uppercase leading-tight">
                   Japan
                 </p>
               </div>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-stone-400 max-w-xs">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-500 max-w-xs">
               Curated digital detox experiences in Japan's natural wilderness. Glamping, onsen, and forest therapy — all prepared in English.
             </p>
-            <p className="mt-4 text-xs text-stone-500 italic font-display">
+            <p className="mt-4 text-xs text-zinc-600 italic font-display">
               "Encouraged, not enforced."
             </p>
           </div>
 
           {/* Packages + Pages */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest text-white uppercase mb-4">Packages</h4>
+            <h4 className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-4">Packages</h4>
             <ul className="space-y-2">
               {PACKAGES.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-stone-400 hover:text-forest-400 transition-colors">
+                  <Link href={l.href} className="text-sm text-zinc-500 hover:text-forest-400 transition-colors">
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <h4 className="text-xs font-semibold tracking-widest text-white uppercase mb-4 mt-8">Explore</h4>
+            <h4 className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-4 mt-8">Explore</h4>
             <ul className="space-y-2">
               {PAGES.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-stone-400 hover:text-forest-400 transition-colors">
+                  <Link href={l.href} className="text-sm text-zinc-500 hover:text-forest-400 transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -78,11 +80,11 @@ export default function Footer() {
 
           {/* Landing pages */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest text-white uppercase mb-4">Topics</h4>
+            <h4 className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-4">Topics</h4>
             <ul className="space-y-2">
               {LANDING.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-stone-400 hover:text-forest-400 transition-colors">
+                  <Link href={l.href} className="text-sm text-zinc-500 hover:text-forest-400 transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -92,11 +94,11 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest text-white uppercase mb-4">Legal</h4>
+            <h4 className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-4">Legal</h4>
             <ul className="space-y-2">
               {LEGAL.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-stone-400 hover:text-forest-400 transition-colors">
+                  <Link href={l.href} className="text-sm text-zinc-500 hover:text-forest-400 transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -106,11 +108,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-stone-500">
+        <div className="mt-14 border-t border-zinc-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-zinc-700">
             &copy; {new Date().getFullYear()} Digital Detox Japan. All rights reserved.
           </p>
-          <p className="text-xs text-stone-600">
+          <p className="text-xs text-zinc-700">
             Operated in Japan &middot; English support available
           </p>
         </div>

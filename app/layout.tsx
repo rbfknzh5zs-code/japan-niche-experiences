@@ -76,11 +76,29 @@ const websiteSchema = {
   },
 }
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'TouristAttraction'],
+  name: 'Digital Detox Japan',
+  url: SITE_URL,
+  image: `${SITE_URL}/images/nasu-dome-forest.png`,
+  priceRange: '$20–$$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'JP',
+    addressRegion: 'Tochigi',
+    addressLocality: 'Nasu-machi',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 37.0665, longitude: 140.0987 },
+  areaServed: { '@type': 'Country', name: 'Japan' },
+  availableLanguage: { '@type': 'Language', name: 'English' },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
-        <JsonLd data={[orgSchema, websiteSchema]} />
+        <JsonLd data={[orgSchema, websiteSchema, localBusinessSchema]} />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKECFYTPVC" />
         <script

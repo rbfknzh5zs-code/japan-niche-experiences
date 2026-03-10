@@ -1,16 +1,21 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const NAV = [
   { label: 'Packages', href: '/packages/digital-detox-starter' },
+  { label: 'Blog', href: '/blog' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'FAQ', href: '/faq' },
 ]
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const introMode = pathname === '/'
+  const copyRevealClass = introMode ? 'header-copy-reveal' : ''
 
   return (
     <header className="relative z-50 border-b border-zinc-800/50 bg-zinc-950/95 backdrop-blur-md">
@@ -18,12 +23,12 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <span
-            className="font-display text-2xl text-forest-400 group-hover:text-forest-300 transition-colors"
+            className={`font-display text-2xl text-forest-400 group-hover:text-forest-300 transition-colors ${copyRevealClass}`}
             style={{ fontFamily: 'serif' }}
           >
             禅
           </span>
-          <div>
+          <div className={copyRevealClass}>
             <p className="text-sm font-semibold tracking-widest text-zinc-100 uppercase leading-none">
               Digital Detox
             </p>
@@ -34,7 +39,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className={`hidden md:flex items-center gap-8 ${copyRevealClass}`}>
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -48,7 +53,7 @@ export default function Header() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-3">
-          <Link href="/contact" className="hidden md:inline-flex btn-primary text-xs px-5 py-2.5">
+          <Link href="/contact" className={`hidden md:inline-flex btn-primary text-xs px-5 py-2.5 ${copyRevealClass}`}>
             Request Dates
           </Link>
           <button
@@ -71,7 +76,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-zinc-950 border-t border-zinc-800 px-6 pb-6 pt-4 space-y-4">
+        <div className={`md:hidden bg-zinc-950 border-t border-zinc-800 px-6 pb-6 pt-4 space-y-4 ${copyRevealClass}`}>
           {NAV.map((item) => (
             <Link
               key={item.href}

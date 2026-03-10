@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Hero from '@/components/Hero'
-import JsonLd from '@/components/JsonLd'
 import WhyResetMattersSection from '@/components/WhyResetMattersSection'
 
 export const metadata: Metadata = {
@@ -81,25 +80,8 @@ const STEPS = [
 ]
 
 export default function HomePage() {
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'Digital Detox Starter',
-    description:
-      'A 1-night glamping digital detox package in Japan for 1–8 guests. Includes BBQ plan, English guide PDF, onsen map, directions, and digital detox mini guide.',
-    brand: { '@type': 'Brand', name: 'Digital Detox Japan' },
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'USD',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: 20, priceCurrency: 'USD' },
-      availability: 'https://schema.org/InStock',
-      url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitaldetoxjapan.com'}/packages/digital-detox-starter`,
-    },
-  }
-
   return (
     <>
-      <JsonLd data={productSchema} />
 
       {/* ── Hero ── */}
       <Hero
@@ -111,6 +93,7 @@ export default function HomePage() {
         cta={{ label: 'Request your dates', href: '/contact' }}
         kanji="禅"
         bgImage="/images/nasu-sauna.jpg"
+        introImage="/images/hero-river-forest.jpg"
       />
 
       {/* ── Manifesto strip ── */}
@@ -414,6 +397,27 @@ export default function HomePage() {
             <Link href="/contact" className="btn-primary">
               Request your dates
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Guides & Inspiration ── */}
+      <section className="bg-zinc-950 py-16 px-6 border-t border-zinc-900">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-xs font-semibold tracking-[0.3em] text-forest-400 uppercase mb-5">Explore</p>
+          <h2 className="font-display text-3xl font-light text-white mb-10">Guides & Inspiration</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { title: 'Digital Detox Japan', href: '/digital-detox-japan', desc: "Why Japan is the world's best place to unplug." },
+              { title: 'Forest Therapy Japan', href: '/forest-therapy-japan', desc: 'The science of shinrin-yoku and forest bathing.' },
+              { title: 'Unplug in Japan', href: '/unplug-in-japan', desc: 'How to disconnect without the planning stress.' },
+              { title: 'Japan Wellness Retreat', href: '/japan-wellness-nature-retreat', desc: 'Onsen, nature, and deep rest — a complete guide.' },
+            ].map((card) => (
+              <Link key={card.href} href={card.href} className="group block rounded-xl border border-zinc-800 bg-zinc-900 p-6 hover:border-forest-700 transition-all">
+                <h3 className="font-display text-lg font-light text-zinc-100 group-hover:text-forest-400 mb-2">{card.title}</h3>
+                <p className="text-sm text-zinc-500">{card.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

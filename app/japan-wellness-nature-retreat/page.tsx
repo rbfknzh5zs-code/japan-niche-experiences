@@ -1,21 +1,36 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Japan Wellness Nature Retreat — Onsen, Forest & Deep Rest',
+  title: 'Japan Wellness Retreat 2026 — Onsen, Forest & Glamping in English',
   description:
-    'A japan wellness nature retreat combining onsen, forest bathing, and digital detox glamping. Designed for English-speaking travelers seeking genuine rest in Japan\'s natural wilderness.',
+    "Onsen, forest therapy, and glamping — three ancient Japanese wellness practices in one effortless experience. All in English, no Japanese required. 4.9/5 from 32 guests.",
   alternates: { canonical: '/japan-wellness-nature-retreat' },
   openGraph: {
-    title: 'Japan Wellness Nature Retreat — Onsen, Forest & Deep Rest',
+    title: 'Japan Wellness Retreat 2026 — Onsen, Forest & Glamping in English',
     description: 'Combine onsen, forest therapy, and glamping in one curated Japan wellness retreat — all in English.',
   },
 }
 
 export default function JapanWellnessNatureRetreatPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Japan Wellness Retreat 2026 — Onsen, Forest & Glamping in English',
+    description: "A japan wellness nature retreat combining onsen, forest bathing, and digital detox glamping. Designed for English-speaking travelers seeking genuine rest in Japan's natural wilderness.",
+    url: 'https://digitaldetoxjapan.com/japan-wellness-nature-retreat',
+    datePublished: '2024-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    author: { '@type': 'Organization', name: 'Digital Detox Japan', url: 'https://digitaldetoxjapan.com' },
+    publisher: { '@type': 'Organization', name: 'Digital Detox Japan' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://digitaldetoxjapan.com/japan-wellness-nature-retreat' },
+  }
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       <Hero
         tag="Japan Wellness Nature Retreat"
         title="Japan Wellness Nature Retreat"

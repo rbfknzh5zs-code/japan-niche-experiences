@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendContactEmail, type ContactFormData } from '@/lib/email'
 import { getSupabaseClient } from '@/lib/db'
+import { generateReservationSummary } from '@/lib/ai'
 
 export async function POST(req: NextRequest) {
   try {
@@ -52,6 +53,16 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Send email ────────────────────────────────────────────────────────────
+    const aiSummary = await generateReservationSummary({
+      desiredCheckInDate: body.desiredCheckInDate!,
+      guests: String(guests),
+      name: body.name!.trim(),
+      email: body.email!.trim(),
+      whatsapp: body.whatsapp?.trim() || undefined,
+      country: body.country?.trim() || undefined,
+      message: body.message?.trim() || undefined,
+    })
+
     await sendContactEmail({
       desiredCheckInDate: body.desiredCheckInDate!,
       guests: String(guests),
@@ -60,6 +71,7 @@ export async function POST(req: NextRequest) {
       whatsapp: body.whatsapp?.trim() || undefined,
       country: body.country?.trim() || undefined,
       message: body.message?.trim() || undefined,
+      aiSummary: aiSummary ?? undefined,
     })
 
     return NextResponse.json({ success: true }, { status: 200 })

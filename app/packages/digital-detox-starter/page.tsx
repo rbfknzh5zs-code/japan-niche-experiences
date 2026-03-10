@@ -4,12 +4,12 @@ import Hero from '@/components/Hero'
 import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Digital Detox Starter Package — 1-Night Glamping in Japan',
+  title: 'Digital Detox Starter 2026 — 1-Night Japan Glamping From ¥15,000',
   description:
-    'The Digital Detox Starter: 1-night glamping for 1–8 guests in Japan\'s wilderness. Includes BBQ plan, English guide PDF, onsen map, directions & digital detox mini guide. From ¥15,000/group.',
+    "1-night glamping in Japan's wilderness. BBQ, onsen map, full English guide — everything prepared. 4.9/5 from 32 guests. From ¥15,000/group. Reply within 48 hrs — no payment upfront.",
   alternates: { canonical: '/packages/digital-detox-starter' },
   openGraph: {
-    title: 'Digital Detox Starter Package — 1-Night Glamping in Japan',
+    title: 'Digital Detox Starter 2026 — 1-Night Japan Glamping From ¥15,000',
     description: '1-night glamping digital detox in Japan. BBQ, onsen access, English guide — everything prepared. From ¥15,000/group.',
   },
 }
@@ -57,6 +57,15 @@ const NOT_INCLUDED = [
 
 export default function DigitalDetoxStarterPage() {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitaldetoxjapan.com'
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://digitaldetoxjapan.com' },
+      { '@type': 'ListItem', position: 2, name: 'Packages', item: 'https://digitaldetoxjapan.com/packages' },
+      { '@type': 'ListItem', position: 3, name: 'Digital Detox Starter', item: 'https://digitaldetoxjapan.com/packages/digital-detox-starter' },
+    ],
+  }
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -79,7 +88,7 @@ export default function DigitalDetoxStarterPage() {
 
   return (
     <>
-      <JsonLd data={productSchema} />
+      <JsonLd data={[breadcrumbSchema, productSchema]} />
 
       <Hero
         tag="Package"

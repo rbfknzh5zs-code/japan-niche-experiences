@@ -47,23 +47,23 @@ export default function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-forest-200 bg-forest-50 px-8 py-12 text-center">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 px-8 py-12 text-center">
         <div className="mb-4 flex justify-center">
-          <svg className="w-12 h-12 text-forest-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+          <svg className="w-12 h-12 text-forest-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
         </div>
-        <h3 className="font-display text-2xl font-light text-forest-800 mb-3">
+        <h3 className="font-display text-2xl font-light text-white mb-3">
           Request Received
         </h3>
-        <p className="text-stone-600 leading-relaxed">
+        <p className="text-zinc-400 leading-relaxed">
           Thank you, we&apos;ll reply within{' '}
-          <strong className="text-stone-800">48 hours (JST)</strong> to confirm
+          <strong className="text-zinc-200">48 hours (JST)</strong> to confirm
           availability and next steps.
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="mt-8 text-sm text-forest-600 underline underline-offset-2 hover:text-forest-700"
+          className="mt-8 text-sm text-forest-400 underline underline-offset-2 hover:text-forest-300"
         >
           Submit another request
         </button>
@@ -76,8 +76,8 @@ export default function ContactForm() {
       {/* Row 1: date + guests */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="desiredCheckInDate" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-            Desired Check-in Date <span className="text-red-500">*</span>
+          <label htmlFor="desiredCheckInDate" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            Desired Check-in Date <span className="text-red-400">*</span>
           </label>
           <input
             type="date"
@@ -90,8 +90,8 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="guests" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-            Guests <span className="text-red-500">*</span>
+          <label htmlFor="guests" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            Guests <span className="text-red-400">*</span>
           </label>
           <select id="guests" name="guests" required className="input-base">
             <option value="">Select…</option>
@@ -110,8 +110,8 @@ export default function ContactForm() {
       {/* Row 2: name + email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-            Name <span className="text-red-500">*</span>
+          <label htmlFor="name" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            Name <span className="text-red-400">*</span>
           </label>
           <input
             type="text"
@@ -124,8 +124,8 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-            Email <span className="text-red-500">*</span>
+          <label htmlFor="email" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            Email <span className="text-red-400">*</span>
           </label>
           <input
             type="email"
@@ -141,8 +141,8 @@ export default function ContactForm() {
       {/* Row 3: WhatsApp + Country */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="whatsapp" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-            WhatsApp <span className="text-stone-400 normal-case font-normal tracking-normal">(optional)</span>
+          <label htmlFor="whatsapp" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            WhatsApp <span className="text-zinc-600 normal-case font-normal tracking-normal">(optional)</span>
           </label>
           <input
             type="text"
@@ -154,8 +154,8 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="country" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-            Country <span className="text-stone-400 normal-case font-normal tracking-normal">(optional)</span>
+          <label htmlFor="country" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+            Country <span className="text-zinc-600 normal-case font-normal tracking-normal">(optional)</span>
           </label>
           <input
             type="text"
@@ -169,8 +169,8 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-xs font-semibold tracking-widest text-stone-500 uppercase mb-2">
-          Message <span className="text-stone-400 normal-case font-normal tracking-normal">(optional)</span>
+        <label htmlFor="message" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+          Message <span className="text-zinc-600 normal-case font-normal tracking-normal">(optional)</span>
         </label>
         <textarea
           id="message"
@@ -188,28 +188,28 @@ export default function ContactForm() {
           id="consent"
           name="consent"
           required
-          className="mt-1 h-4 w-4 rounded border-stone-300 text-forest-600 focus:ring-forest-500"
+          className="mt-1 h-4 w-4 rounded border-zinc-600 bg-zinc-900 text-forest-600 focus:ring-forest-500"
         />
-        <label htmlFor="consent" className="text-sm text-stone-600 leading-relaxed">
+        <label htmlFor="consent" className="text-sm text-zinc-400 leading-relaxed">
           I agree to the{' '}
-          <Link href="/legal/terms" target="_blank" className="text-forest-600 underline underline-offset-2">
+          <Link href="/legal/terms" target="_blank" className="text-forest-400 underline underline-offset-2">
             Terms &amp; Conditions
           </Link>
           ,{' '}
-          <Link href="/legal/privacy" target="_blank" className="text-forest-600 underline underline-offset-2">
+          <Link href="/legal/privacy" target="_blank" className="text-forest-400 underline underline-offset-2">
             Privacy Policy
           </Link>
           , and{' '}
-          <Link href="/legal/disclaimer" target="_blank" className="text-forest-600 underline underline-offset-2">
+          <Link href="/legal/disclaimer" target="_blank" className="text-forest-400 underline underline-offset-2">
             Disclaimer
           </Link>
-          . <span className="text-red-500">*</span>
+          . <span className="text-red-400">*</span>
         </label>
       </div>
 
       {/* Error message */}
       {status === 'error' && (
-        <p className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+        <p className="rounded-lg bg-red-950/50 border border-red-900 px-4 py-3 text-sm text-red-400">
           {errorMsg}
         </p>
       )}
@@ -222,7 +222,7 @@ export default function ContactForm() {
         {status === 'loading' ? 'Sending…' : 'Send Reservation Request'}
       </button>
 
-      <p className="text-center text-xs text-stone-400">
+      <p className="text-center text-xs text-zinc-600">
         We reply within 48 hours (JST). No payment required at this stage.
       </p>
     </form>

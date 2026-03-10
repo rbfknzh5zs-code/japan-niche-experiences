@@ -1,21 +1,36 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Digital Detox Japan — Escape Screens, Reconnect with Nature',
+  title: 'Digital Detox Japan 2026 — Unplug in Nature, All in English',
   description:
-    "Digital detox japan experiences designed for English-speaking travelers. Glamping, forest bathing, and onsen in Japan's wilderness — all prepared in English. No Japanese required.",
+    "Leave your notifications in Tokyo. We book the glamping, handle all Japanese, and send you a complete English guide. 4.9/5 from 32 guests. Request dates — no payment upfront.",
   alternates: { canonical: '/digital-detox-japan' },
   openGraph: {
-    title: 'Digital Detox Japan — Escape Screens, Reconnect with Nature',
-    description: 'Curated digital detox retreats in Japan. Glamping, forest therapy & onsen — all in English.',
+    title: 'Digital Detox Japan 2026 — Unplug in Nature, All in English',
+    description: 'Curated digital detox retreats in Japan. Glamping, forest therapy & onsen — all in English. 4.9/5 from 32 guests.',
   },
 }
 
 export default function DigitalDetoxJapanPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Digital Detox Japan 2026 — Unplug in Nature, All in English',
+    description: 'Digital detox japan experiences designed for English-speaking travelers. Glamping, forest bathing, and onsen in Japan\'s wilderness — all prepared in English. No Japanese required.',
+    url: 'https://digitaldetoxjapan.com/digital-detox-japan',
+    datePublished: '2024-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    author: { '@type': 'Organization', name: 'Digital Detox Japan', url: 'https://digitaldetoxjapan.com' },
+    publisher: { '@type': 'Organization', name: 'Digital Detox Japan' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://digitaldetoxjapan.com/digital-detox-japan' },
+  }
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       <Hero
         tag="Digital Detox Japan"
         title="Digital Detox in Japan"
