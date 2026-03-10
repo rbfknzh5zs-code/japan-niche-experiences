@@ -221,10 +221,10 @@ export default function HomePage() {
                   src="/images/nasu-dome-forest.png"
                   alt="Glamping B&V Nasu Kogen — dome cabin exterior"
                   fill
-                  className="object-cover object-center opacity-50"
+                  className="object-cover object-center opacity-90"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <span className="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest text-earth-300 uppercase mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-earth-400 inline-block" />
                   Featured Destination
