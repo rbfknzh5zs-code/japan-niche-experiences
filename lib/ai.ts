@@ -4,6 +4,7 @@ interface ReservationSummaryInput {
   desiredCheckInDate: string
   desiredCheckOutDate: string
   guests: string
+  packageChoice?: string
   name: string
   email: string
   whatsapp?: string
@@ -31,6 +32,7 @@ function buildReservationPrompt(data: ReservationSummaryInput) {
     `Email: ${data.email}`,
     `WhatsApp: ${data.whatsapp ?? 'N/A'}`,
     `Country: ${data.country ?? 'N/A'}`,
+    `Package: ${data.packageChoice ?? 'N/A'}`,
     `Check-in Date: ${data.desiredCheckInDate}`,
     `Check-out Date: ${data.desiredCheckOutDate}`,
     `Guests: ${data.guests}`,

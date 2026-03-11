@@ -24,6 +24,7 @@ export default function CancellationRefundsPage() {
 
           <section>
             <h2 className="font-display text-2xl font-light text-stone-900 mb-4">1. Cancellation by the Guest</h2>
+            <p className="mb-3">Digital Detox Japan is independently operated by an individual owner in Japan as a sole proprietorship (not an incorporated company).</p>
             <p className="mb-6">If you need to cancel a confirmed booking, please notify us as early as possible via email. Cancellation fees are calculated based on the number of days before your check-in date:</p>
 
             <div className="overflow-x-auto">

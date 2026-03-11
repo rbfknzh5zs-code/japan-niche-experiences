@@ -25,6 +25,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="font-display text-2xl font-light text-stone-900 mb-4">1. Who We Are</h2>
             <p>Digital Detox Japan ("we," "us," "our") operates the website at this domain and provides digital detox experience planning services. For privacy inquiries, you can contact us through the <Link href="/contact" className="text-forest-600 underline underline-offset-2">Contact page</Link>.</p>
+            <p className="mt-3">Digital Detox Japan is independently operated by an individual owner in Japan as a sole proprietorship (not an incorporated company).</p>
           </section>
 
           <section>

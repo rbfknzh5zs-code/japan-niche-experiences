@@ -4,6 +4,7 @@ export interface ContactFormData {
   desiredCheckInDate: string
   desiredCheckOutDate: string
   guests: string
+  packageChoice?: string
   name: string
   email: string
   whatsapp?: string
@@ -39,6 +40,7 @@ export async function sendContactEmail(data: ContactFormData) {
   const safeCheckInDate = escapeHtml(data.desiredCheckInDate)
   const safeCheckOutDate = escapeHtml(data.desiredCheckOutDate)
   const safeGuests = escapeHtml(data.guests)
+  const safePackage = data.packageChoice ? escapeHtml(data.packageChoice) : null
   const safeMessage = data.message ? escapeHtml(data.message).replace(/\n/g, '<br>') : null
   const safeAiSummary = data.aiSummary ? escapeHtml(data.aiSummary).replace(/\n/g, '<br>') : null
   const subjectName = sanitizeHeaderValue(data.name)
@@ -69,6 +71,7 @@ export async function sendContactEmail(data: ContactFormData) {
     <tr><td>Email</td><td>${safeEmail}</td></tr>
     ${safeWhatsApp ? `<tr><td>WhatsApp</td><td>${safeWhatsApp}</td></tr>` : ''}
     ${safeCountry ? `<tr><td>Country</td><td>${safeCountry}</td></tr>` : ''}
+    ${safePackage ? `<tr><td>Package</td><td>${safePackage}</td></tr>` : ''}
     <tr><td>Check-in Date</td><td>${safeCheckInDate}</td></tr>
     <tr><td>Check-out Date</td><td>${safeCheckOutDate}</td></tr>
     <tr><td>Guests</td><td>${safeGuests}</td></tr>

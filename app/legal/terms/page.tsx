@@ -25,6 +25,7 @@ export default function TermsPage() {
           <section>
             <h2 className="font-display text-2xl font-light text-stone-900 mb-4">1. Introduction</h2>
             <p>These Terms & Conditions ("Terms") govern your use of the Digital Detox Japan website ("Site") and the reservation planning services ("Services") provided by Digital Detox Japan ("we," "us," "our"). By submitting a reservation request or purchasing a package, you agree to these Terms in full.</p>
+            <p className="mt-3">Digital Detox Japan is independently operated by an individual owner in Japan as a sole proprietorship (not an incorporated company).</p>
           </section>
 
           <section>

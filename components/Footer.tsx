@@ -113,7 +113,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Digital Detox Japan. All rights reserved.
           </p>
           <p className="text-xs text-zinc-700">
-            Operated in Japan &middot; English support available
+            Independently operated in Japan (sole proprietor) &middot; English support available
           </p>
         </div>
       </div>

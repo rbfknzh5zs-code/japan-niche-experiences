@@ -25,6 +25,7 @@ export default function DisclaimerPage() {
           <section>
             <h2 className="font-display text-2xl font-light text-stone-900 mb-4">1. General Disclaimer</h2>
             <p>The information provided on this website and in Digital Detox Japan materials is for general informational purposes only. While we strive for accuracy, we make no warranties — express or implied — about the completeness, accuracy, reliability, or suitability of the information for any particular purpose.</p>
+            <p className="mt-3">Digital Detox Japan is independently operated by an individual owner in Japan as a sole proprietorship (not an incorporated company).</p>
           </section>
 
           <section>

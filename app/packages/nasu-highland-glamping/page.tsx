@@ -61,11 +61,63 @@ const NOT_INCLUDED = [
 ]
 
 const DOME_TYPES = [
-  { name: 'Standard Dome', size: '7 m', capacity: 'Up to 6 guests', note: 'Classic dome with private onsen, sauna, and campfire.' },
-  { name: 'Deluxe Dome', size: '8 m', capacity: 'Up to 8 guests', note: 'Larger dome — ideal for groups or families.' },
-  { name: 'Twin Dome', size: '—', capacity: 'Up to 8 guests', note: 'Two connected domes for couples or smaller groups wanting separate spaces.' },
-  { name: 'Clear Dome', size: '7 m', capacity: 'Up to 6 guests', note: 'Transparent ceiling — stargaze from inside your cabin.' },
-  { name: 'Raindrop', size: '—', capacity: 'Up to 6 guests', note: 'Dog-friendly dome with a dedicated private dog run. Bring your dog.' },
+  { name: 'Standard Dome', size: '7 m', note: 'Classic dome with private onsen, sauna, and campfire.' },
+  { name: 'Deluxe Dome', size: '8 m', note: 'Larger dome — ideal for groups or families.' },
+  { name: 'Twin Dome', size: '—', note: 'Two connected domes for couples or smaller groups wanting separate spaces.' },
+  { name: 'Clear Dome', size: '7 m', note: 'Transparent ceiling — stargaze from inside your cabin.' },
+  { name: 'Raindrop', size: '—', note: 'Dog-friendly dome with a dedicated private dog run. Bring your dog.' },
+]
+
+const EXPERIENCE_HIGHLIGHTS = [
+  {
+    icon: '🌲',
+    title: 'Forest-View Glamping',
+    desc: 'Quiet highland air, cedar views, and wide open sky from your private deck.',
+  },
+  {
+    icon: '♨️',
+    title: 'Private Open-Air Onsen',
+    desc: 'Natural hot spring bath in every cabin, ready whenever you want to soak.',
+  },
+  {
+    icon: '🪣',
+    title: 'Barrel Sauna + Cold Plunge',
+    desc: 'Your own sauna cycle for deep reset, without leaving your cabin area.',
+  },
+  {
+    icon: '🍽️',
+    title: 'Glamping Meals',
+    desc: 'BBQ dinner moments and fresh morning meals in a relaxed outdoor setting.',
+  },
+]
+
+const MEAL_HIGHLIGHTS = [
+  'Campfire-style BBQ moments that feel natural in the highland setting.',
+  'Outdoor dining atmosphere with mountain air and no city noise.',
+  'Flexible pace so you can stay offline and fully present.',
+]
+
+const STAY_FLOW = [
+  {
+    step: '15:00',
+    title: 'Check in & settle in',
+    body: 'Arrive at your dome, unpack, and get familiar with your private onsen and sauna zone.',
+  },
+  {
+    step: '17:30',
+    title: 'BBQ dinner time',
+    body: 'Start your glamping meal with local ingredients and a calm forest backdrop.',
+  },
+  {
+    step: '20:00',
+    title: 'Onsen, sauna, campfire',
+    body: 'Move between heat, cold plunge, and campfire under the stars.',
+  },
+  {
+    step: '08:00',
+    title: 'Slow morning in nature',
+    body: 'Wake up to fresh air, breakfast, and a quiet start before check-out.',
+  },
 ]
 
 export default function NasuHighlandGlampingPage() {
@@ -109,88 +161,152 @@ export default function NasuHighlandGlampingPage() {
         bgImage="/images/nasut_1.jpg"
       />
 
-      {/* Onsen + Sauna highlight banner */}
-      <section className="bg-earth-900 py-10 px-6">
-        <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-center gap-8 text-center sm:text-left">
-          <div className="flex items-center gap-4">
-            <span className="text-4xl">♨️</span>
-            <div>
-              <p className="text-xs font-semibold tracking-widest text-earth-300 uppercase mb-0.5">In every cabin</p>
-              <p className="font-display text-xl font-light text-white">Private Natural Hot Spring</p>
-            </div>
-          </div>
-          <div className="hidden sm:block w-px h-12 bg-earth-700" />
-          <div className="flex items-center gap-4">
-            <span className="text-4xl">🪣</span>
-            <div>
-              <p className="text-xs font-semibold tracking-widest text-earth-300 uppercase mb-0.5">In every cabin</p>
-              <p className="font-display text-xl font-light text-white">Finnish Barrel Sauna</p>
-            </div>
-          </div>
-          <div className="hidden sm:block w-px h-12 bg-earth-700" />
-          <div className="flex items-center gap-4">
-            <span className="text-4xl">🔥</span>
-            <div>
-              <p className="text-xs font-semibold tracking-widest text-earth-300 uppercase mb-0.5">In every cabin</p>
-              <p className="font-display text-xl font-light text-white">Private Campfire</p>
-            </div>
+      {/* Experience highlights */}
+      <section className="border-y border-lime-100 bg-lime-50 py-12 px-6">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold tracking-[0.25em] text-lime-800 uppercase">
+            Glamping highlights
+          </p>
+          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {EXPERIENCE_HIGHLIGHTS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-lime-200 bg-white/90 p-5 shadow-[0_10px_30px_-20px_rgba(22,101,52,0.45)]"
+              >
+                <p className="text-2xl">{item.icon}</p>
+                <h2 className="mt-3 font-display text-xl font-light text-stone-900">{item.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Photo gallery */}
-      <section className="bg-white py-12 px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden col-span-2 row-span-1 lg:col-span-2 lg:row-span-2">
+      <section className="bg-white py-14 px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.25em] text-lime-800 uppercase">Gallery</p>
+              <h2 className="font-display text-3xl font-light text-stone-900">Nature, Onsen, and Dining Moments</h2>
+            </div>
+            <p className="text-sm text-stone-500">
+              Calm, scenic, and meal-focused like a premium glamping retreat.
+            </p>
+          </div>
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="relative overflow-hidden rounded-2xl sm:col-span-2 lg:col-span-2 aspect-[16/10]">
               <Image
                 src="/images/nasu-dome-forest.png"
                 alt="Glamping B&V Nasu Kogen — dome cabins"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, 66vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+              <p className="absolute bottom-4 left-4 text-sm font-medium text-white">Dome cabins in the highland forest</p>
             </div>
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-              <Image
-                src="/images/nasut_4.jpg"
-                alt="Nasu Highland glamping exterior"
-                fill
-                className="object-cover"
-                sizes="25vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-              <Image
-                src="/images/nasut_11.jpg"
-                alt="Nasu Highland glamping dome"
-                fill
-                className="object-cover"
-                sizes="25vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+
+            <div className="relative overflow-hidden rounded-2xl aspect-[16/10]">
               <Image
                 src="/images/nasu-sauna.jpg"
                 alt="Private barrel sauna at Nasu Highland"
                 fill
                 className="object-cover"
-                sizes="25vw"
+                sizes="(max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+
+            <div className="relative overflow-hidden rounded-2xl aspect-[16/10]">
               <Image
-                src="/images/nasut_6.jpg"
-                alt="Nasu Highland glamping camp area"
+                src="/images/glamping-meal-bbq.jpg"
+                alt="Glamping BBQ dinner setup"
                 fill
                 className="object-cover"
-                sizes="25vw"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-transparent" />
+              <p className="absolute bottom-4 left-4 text-sm font-medium text-white">Glamping BBQ dinner</p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl aspect-[16/10]">
+              <Image
+                src="/images/glamping-meal-breakfast.jpg"
+                alt="Campfire cooking in an outdoor glamping setting"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-transparent" />
+              <p className="absolute bottom-3 left-3 text-xs font-medium text-white">Campfire cooking moments</p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl sm:col-span-2 lg:col-span-1 aspect-[16/10]">
+              <Image
+                src="/images/nasut_11.jpg"
+                alt="Nasu Highland glamping dome exterior"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
             </div>
           </div>
           <p className="mt-3 text-xs text-stone-400 text-right">
-            Photos: Glamping B&amp;V Nasu Kogen
+            Photos: Glamping B&amp;V Nasu Kogen + Pixabay meal photos
           </p>
+        </div>
+      </section>
+
+      {/* Meal section */}
+      <section className="border-y border-stone-200 bg-white py-20 px-6">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.25em] text-lime-800 uppercase">Meal</p>
+            <h2 className="mt-3 font-display text-4xl font-light text-stone-900">
+              Campfire Dining Moments
+            </h2>
+            <p className="mt-5 text-stone-600 leading-relaxed">
+              Inspired by Japan's resort glamping atmosphere, this stay is not only about where you sleep.
+              Meals become part of the experience: outdoor BBQ, quiet conversation, and time away from screens.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {MEAL_HIGHLIGHTS.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-stone-700">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-lime-700" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="relative min-h-64 overflow-hidden rounded-2xl col-span-2">
+              <Image
+                src="/images/glamping-meal-bbq.jpg"
+                alt="Dinner BBQ at glamping site"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative min-h-48 overflow-hidden rounded-2xl">
+              <Image
+                src="/images/glamping-meal-breakfast.jpg"
+                alt="Campfire cooking setup"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative min-h-48 overflow-hidden rounded-2xl">
+              <Image
+                src="/images/nasut_6.jpg"
+                alt="Campfire and outdoor dining area"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -216,6 +332,23 @@ export default function NasuHighlandGlampingPage() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* A day flow */}
+              <div className="rounded-2xl border border-lime-400/25 bg-lime-950/30 p-8">
+                <p className="text-xs font-semibold tracking-[0.25em] text-lime-300 uppercase mb-4">One day flow</p>
+                <h2 className="font-display text-3xl font-light text-white mb-7">A Day at Nasu Highland</h2>
+                <ol className="space-y-5">
+                  {STAY_FLOW.map((item) => (
+                    <li key={item.step} className="grid grid-cols-[72px_1fr] gap-4">
+                      <p className="font-display text-2xl text-lime-300">{item.step}</p>
+                      <div>
+                        <h3 className="font-semibold text-zinc-100">{item.title}</h3>
+                        <p className="mt-1 text-sm leading-relaxed text-zinc-400">{item.body}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
 
               {/* Onsen & Sauna deep dive */}
@@ -259,9 +392,6 @@ export default function NasuHighlandGlampingPage() {
                           {dome.size !== '—' && (
                             <span className="text-xs text-zinc-600">({dome.size} diameter)</span>
                           )}
-                          <span className="text-xs font-medium text-forest-400 bg-forest-900/40 rounded-full px-2 py-0.5">
-                            {dome.capacity}
-                          </span>
                         </div>
                         <p className="text-sm text-zinc-500">{dome.note}</p>
                       </div>
@@ -428,7 +558,6 @@ export default function NasuHighlandGlampingPage() {
                   <p className="flex items-center gap-2"><span>♨️</span> Private onsen in every cabin</p>
                   <p className="flex items-center gap-2"><span>🪣</span> Private barrel sauna in every cabin</p>
                   <p className="flex items-center gap-2"><span>🔥</span> Private campfire in every cabin</p>
-                  <p className="flex items-center gap-2"><span className="text-forest-400">✓</span> Up to 8 guests</p>
                   <p className="flex items-center gap-2"><span>🐾</span> <span className="text-earth-300">Pets welcome — dog-friendly dome</span></p>
                 </div>
 

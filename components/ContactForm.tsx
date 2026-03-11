@@ -84,14 +84,15 @@ export default function ContactForm() {
 
     const form = e.currentTarget
     const data = {
-      desiredCheckInDate: (form.elements.namedItem('desiredCheckInDate') as HTMLInputElement).value,
+      desiredCheckInDate:  (form.elements.namedItem('desiredCheckInDate') as HTMLInputElement).value,
       desiredCheckOutDate: (form.elements.namedItem('desiredCheckOutDate') as HTMLInputElement).value,
-      guests:             (form.elements.namedItem('guests') as HTMLSelectElement).value,
-      name:               (form.elements.namedItem('name') as HTMLInputElement).value,
-      email:              (form.elements.namedItem('email') as HTMLInputElement).value,
-      whatsapp:           (form.elements.namedItem('whatsapp') as HTMLInputElement).value,
-      country:            (form.elements.namedItem('country') as HTMLSelectElement).value,
-      message:            (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      guests:              (form.elements.namedItem('guests') as HTMLSelectElement).value,
+      packageChoice:       (form.elements.namedItem('packageChoice') as HTMLSelectElement).value,
+      name:                (form.elements.namedItem('name') as HTMLInputElement).value,
+      email:               (form.elements.namedItem('email') as HTMLInputElement).value,
+      whatsapp:            (form.elements.namedItem('whatsapp') as HTMLInputElement).value,
+      country:             (form.elements.namedItem('country') as HTMLSelectElement).value,
+      message:             (form.elements.namedItem('message') as HTMLTextAreaElement).value,
     }
 
     if (new Date(data.desiredCheckOutDate) <= new Date(data.desiredCheckInDate)) {
@@ -196,6 +197,19 @@ export default function ContactForm() {
             <option value="8">8 guests</option>
           </select>
         </div>
+      </div>
+
+      {/* Package selection */}
+      <div>
+        <label htmlFor="packageChoice" className="block text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-2">
+          Package <span className="text-red-400">*</span>
+        </label>
+        <select id="packageChoice" name="packageChoice" required className="input-base">
+          <option value="">Select a package…</option>
+          <option value="nasu-highland-glamping">Nasu Highland Glamping (Private Onsen + Sauna)</option>
+          <option value="digital-detox-starter">Digital Detox Starter (1-Night Glamping)</option>
+          <option value="unsure">Not sure yet — please advise</option>
+        </select>
       </div>
 
       {/* Row 2: name + email */}

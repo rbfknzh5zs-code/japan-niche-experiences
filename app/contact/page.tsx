@@ -12,6 +12,7 @@ const TRUST = [
   { icon: '📬', label: 'Reply within 48 hours (JST)' },
   { icon: '💳', label: 'No payment required at this stage' },
   { icon: '🇬🇧', label: 'All communication in English' },
+  { icon: '💬', label: 'On-site chat support + Japanese assistance when needed' },
   { icon: '🔄', label: 'Full refund if dates unavailable' },
 ]
 
@@ -25,7 +26,10 @@ export default function ContactPage() {
           <h1 className="font-display text-5xl font-light text-white mb-5">
             Request Your Dates
           </h1>
-          <p className="text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto">
+          <p className="mt-3 text-xs font-semibold text-amber-400 tracking-widest uppercase">
+            Spring & Golden Week dates filling — request early
+          </p>
+          <p className="mt-4 text-zinc-400 text-lg leading-relaxed max-w-xl mx-auto">
             Share your preferred check-in date and group size. We'll confirm availability and take care of everything else.
           </p>
         </div>
@@ -45,7 +49,7 @@ export default function ContactPage() {
                   { n: '2', text: 'We check availability and respond within 48 hours (JST).' },
                   { n: '3', text: 'If available, we book the facility on your behalf and email you the total cost — accommodation + $20 coordination fee.' },
                   { n: '4', text: 'You confirm and pay. We handle all Japanese communication with the property.' },
-                  { n: '5', text: 'Receive your English guide pack, then arrive and unplug.' },
+                  { n: '5', text: 'Receive your English guide pack, then arrive and unplug. If anything feels uncertain on-site, message us via chat and we can assist in Japanese.' },
                 ].map((item) => (
                   <li key={item.n} className="flex gap-4">
                     <span className="w-7 h-7 rounded-full bg-forest-900 text-forest-400 text-sm font-bold flex items-center justify-center flex-shrink-0">{item.n}</span>
@@ -79,7 +83,7 @@ export default function ContactPage() {
                   <span className="text-base leading-none mt-0.5">📋</span>
                   <div>
                     <p className="font-medium text-zinc-200">Coordination fee — <span className="text-forest-400">$20</span></p>
-                    <p className="text-xs text-zinc-500 mt-0.5">Fixed fee per booking. Covers English guide PDF, all Japanese communication, and email support.</p>
+                    <p className="text-xs text-zinc-500 mt-0.5">Fixed fee per booking. Covers English guide PDF, all Japanese communication, plus chat/email support before and during your stay.</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +93,7 @@ export default function ContactPage() {
 
             <div className="text-sm text-zinc-500 leading-relaxed">
               <p className="font-medium text-zinc-300 mb-2">Preferred package</p>
-              <p>Nasu Highland Glamping — private onsen + sauna in every dome cabin. Up to 8 guests. Full English guide included.</p>
+              <p>Nasu Highland Glamping — private onsen + sauna in every dome cabin. Full English guide included.</p>
             </div>
           </div>
 

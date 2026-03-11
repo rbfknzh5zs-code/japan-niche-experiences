@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Hero from '@/components/Hero'
 import WhyResetMattersSection from '@/components/WhyResetMattersSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
 
 export const metadata: Metadata = {
   title: 'Digital Detox in Japan — Unplug, Relax, Reconnect',
@@ -153,6 +154,8 @@ export default function HomePage() {
               'Digital detox mini guide to ease the transition',
               'All Japanese communication handled for you',
               'Email support before and during your stay',
+              'On-site chat support for worries, questions, and local coordination',
+              'Japanese-language support available during your stay',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-zinc-300">
                 <Ico
@@ -171,6 +174,9 @@ export default function HomePage() {
 
       {/* ── Why This Reset Matters ── */}
       <WhyResetMattersSection />
+
+      {/* ── Testimonials ── */}
+      <TestimonialsSection />
 
       {/* ── Packages ── */}
       <section className="bg-zinc-950 py-24 px-6">
@@ -239,7 +245,7 @@ export default function HomePage() {
                     ))}
                   </ul>
                   <p className="text-sm text-zinc-500">
-                    5 dome types. Up to 8 guests.
+                    5 dome types available.
                   </p>
                   <p className="text-sm text-earth-300 flex items-center gap-1.5 mt-2">
                     🐾 <span>Pets welcome — dog-friendly dome available</span>
